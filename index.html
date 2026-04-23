@@ -4,11 +4,879 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Hustle Sprint</title>
+    <title>Side Hustle Sprint – Ubah Skill Digital Jadi Penghasilan Tambahan</title>
+    <meta name="description"
+        content="Framework eksekusi brutal 15 Hari untuk merakit, merilis, dan mencetak penjualan dari produk digital Anda—tanpa harus resign.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ============================================================
+           RESET & BASE
+        ============================================================ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            background: #fff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ============================================================
+           DESIGN TOKENS
+        ============================================================ */
+        :root {
+            --red: #D72638;
+            --red-dark: #B01E2C;
+            --black: #111111;
+            --white: #FFFFFF;
+            --gray-light: #F5F5F5;
+            --gray-mid: #E8E8E8;
+            --gray-text: #555555;
+            --section-pad: 64px 20px;
+        }
+
+        /* ============================================================
+           UTILITY
+        ============================================================ */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--red);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 16px 32px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            text-align: center;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: var(--red-dark);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(1.6rem, 5vw, 2.4rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .section-sub {
+            font-size: 1rem;
+            color: var(--gray-text);
+            margin-bottom: 40px;
+        }
+
+        /* ============================================================
+           NAV
+        ============================================================ */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--black);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-brand span {
+            color: var(--red);
+        }
+
+        .nav-cta {
+            background: var(--red);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 8px 16px;
+            border-radius: 4px;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--red-dark);
+        }
+
+        /* ============================================================
+           HERO SECTION
+        ============================================================ */
+        #hero {
+            background: var(--black);
+            color: var(--white);
+            padding: var(--section-pad);
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(215, 38, 56, 0.15);
+            border: 1px solid var(--red);
+            color: var(--red);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+
+        .hero-headline {
+            font-size: clamp(2rem, 8vw, 3.4rem);
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .hero-headline .accent {
+            color: var(--red);
+        }
+
+        .hero-sub {
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            color: #aaa;
+            max-width: 580px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-trust {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .hero-trust i {
+            color: #4caf50;
+        }
+
+        .hero-mockup {
+            margin: 48px auto 0;
+            max-width: 420px;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .hero-mockup-icon {
+            font-size: 5rem;
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+
+        .hero-mockup h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .hero-mockup p {
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        .hero-mockup-badge {
+            display: inline-block;
+            margin-top: 12px;
+            background: var(--red);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 3px;
+        }
+
+        /* ============================================================
+           PROBLEM SECTION
+        ============================================================ */
+        #problem {
+            background: var(--gray-light);
+            padding: var(--section-pad);
+        }
+
+        #problem .section-label {
+            color: var(--red);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .problem-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 24px;
+            border-left: 4px solid var(--red);
+        }
+
+        .problem-card-icon {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+
+        .problem-card h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .problem-card p {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+            line-height: 1.65;
+        }
+
+        .problem-quote {
+            background: var(--black);
+            color: var(--white);
+            border-radius: 8px;
+            padding: 28px 24px;
+            text-align: center;
+            font-size: clamp(0.9rem, 3vw, 1.05rem);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .problem-quote i {
+            color: var(--red);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* ============================================================
+           AUTHORITY SECTION
+        ============================================================ */
+        #authority {
+            background: var(--white);
+            padding: var(--section-pad);
+        }
+
+        #authority .section-label {
+            color: var(--red);
+        }
+
+        .authority-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .authority-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gray-mid);
+            border: 4px solid var(--red);
+            overflow: hidden;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #aaa;
+        }
+
+        .authority-bio h3 {
+            font-size: 1.3rem;
+            font-weight: 900;
+            margin-bottom: 4px;
+        }
+
+        .authority-bio .title-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--red);
+            background: rgba(215, 38, 56, 0.08);
+            padding: 3px 10px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+        }
+
+        .authority-bio p {
+            font-size: 0.95rem;
+            color: var(--gray-text);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .authority-bio p:last-child {
+            margin-bottom: 0;
+        }
+
+        .authority-bio strong {
+            color: var(--black);
+        }
+
+        /* ============================================================
+           WHAT'S INSIDE SECTION
+        ============================================================ */
+        #inside {
+            background: var(--gray-light);
+            padding: var(--section-pad);
+        }
+
+        #inside .section-label {
+            color: var(--red);
+        }
+
+        .inside-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .inside-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .inside-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            background: rgba(215, 38, 56, 0.1);
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .inside-card h3 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .inside-card p {
+            font-size: 0.875rem;
+            color: var(--gray-text);
+            line-height: 1.65;
+        }
+
+        /* ============================================================
+           PRICING SECTION
+        ============================================================ */
+        #pricing {
+            background: var(--white);
+            padding: var(--section-pad);
+        }
+
+        #pricing .section-label {
+            color: var(--red);
+        }
+
+        .pricing-card {
+            border: 2px solid var(--red);
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .pricing-card-header {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 24px 20px;
+        }
+
+        .pricing-card-header i {
+            color: goldenrod;
+            font-size: 1.2rem;
+        }
+
+        .pricing-card-header h2 {
+            font-size: 1.2rem;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin: 8px 0 4px;
+        }
+
+        .pricing-card-header p {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        .pricing-card-body {
+            background: var(--white);
+            padding: 28px 24px;
+        }
+
+        .pricing-items {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .pricing-items li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray-mid);
+            color: var(--black);
+        }
+
+        .pricing-items li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-items li i {
+            color: var(--red);
+            font-size: 0.9rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .pricing-items li strong {
+            font-weight: 700;
+        }
+
+        .pricing-price {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .pricing-price .original {
+            font-size: 0.9rem;
+            color: #aaa;
+            text-decoration: line-through;
+            margin-bottom: 6px;
+        }
+
+        .pricing-price .final {
+            font-size: clamp(2.4rem, 10vw, 3.2rem);
+            font-weight: 900;
+            color: var(--red);
+            line-height: 1;
+        }
+
+        .pricing-price .tag {
+            display: inline-block;
+            background: var(--red);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 3px;
+            margin-top: 8px;
+        }
+
+        .pricing-note {
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--gray-text);
+            margin-top: 14px;
+            line-height: 1.6;
+        }
+
+        .pricing-note i {
+            color: #4caf50;
+        }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        footer {
+            background: var(--black);
+            color: #aaa;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: var(--white);
+        }
+
+        footer .footer-divider {
+            width: 40px;
+            height: 2px;
+            background: var(--red);
+            margin: 16px auto;
+        }
+
+        /* ============================================================
+           RESPONSIVE – TABLET & ABOVE
+        ============================================================ */
+        @media (min-width: 600px) {
+            .problem-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .inside-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .authority-inner {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .authority-photo {
+                width: 140px;
+                height: 140px;
+            }
+
+            .btn-primary {
+                width: auto;
+                font-size: 1.05rem;
+                padding: 18px 40px;
+            }
+        }
+
+        /* ============================================================
+           SCROLL FADE-IN (minimal JS animation)
+        ============================================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Side Hustle Sprint Landing Page</h1>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-brand">Side Hustle <span>Sprint</span></div>
+        <a href="#pricing" class="nav-cta">
+            <i class="fa-solid fa-bolt"></i> Beli Sekarang
+        </a>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <i class="fa-solid fa-circle" style="font-size:0.5rem;"></i>
+                Rilis Perdana: Harga Early Bird Tersedia
+            </div>
+
+            <h1 class="hero-headline">
+                Ubah Skill Digital Anda Menjadi<br>
+                <span class="accent">Mesin Penghasilan Tambahan</span>
+            </h1>
+
+            <p class="hero-sub">
+                Framework eksekusi brutal 15 Hari untuk merakit, merilis, dan mencetak
+                penjualan dari produk digital Anda—tanpa harus resign.
+            </p>
+
+            <a href="#pricing" class="btn-primary" style="max-width:400px;margin:0 auto;display:block;">
+                <i class="fa-solid fa-rocket"></i> Amankan Blueprint Sekarang
+            </a>
+
+            <p class="hero-trust">
+                <i class="fa-solid fa-lock"></i>
+                Akses Instan. Pembayaran Aman via Midtrans.
+            </p>
+
+            <!-- Book Mockup -->
+            <div class="hero-mockup">
+                <div class="hero-mockup-icon">📕</div>
+                <h3>Side Hustle Sprint</h3>
+                <p>Ebook PDF + Notion Tracker 15 Hari + AI Prompt Pack</p>
+                <span class="hero-mockup-badge"><i class="fa-solid fa-star"></i> PRO BUNDLE</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROBLEM ==================== -->
+    <section id="problem">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-label"><i class="fa-solid fa-triangle-exclamation"></i> Pain Point</span>
+                <h2 class="section-title">Jago Teknis,<br>Tapi Gagal Finansial?</h2>
+                <p class="section-sub">
+                    Jika Anda merasa tersindir dengan salah satu poin di bawah,
+                    buku ini ditulis untuk Anda:
+                </p>
+            </div>
+
+            <div class="problem-grid fade-in">
+                <div class="problem-card">
+                    <div class="problem-card-icon"><i class="fa-solid fa-screwdriver-wrench"
+                            style="color:var(--red)"></i></div>
+                    <h3>Terjebak "Builder's Curse"</h3>
+                    <p>Sering bikin side project berbulan-bulan, pengen fiturnya sempurna. Tapi ujung-ujungnya cuma jadi
+                        pajangan di localhost dan nggak pernah rilis.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-card-icon"><i class="fa-solid fa-bullhorn" style="color:var(--red)"></i></div>
+                    <h3>Buta Cara Jualan</h3>
+                    <p>Produknya udah jadi, tapi pas dirilis nggak ada yang beli. Bingung nulis copywriting dan nggak
+                        tau gimana cara masarinnya ke publik.</p>
+                </div>
+            </div>
+
+            <div class="problem-quote fade-in">
+                <i class="fa-solid fa-quote-left"></i>
+                "Gaji bulanan memang aman, tapi bayang-bayang tech winter dan layoff membuktikan:
+                Mengandalkan satu sumber penghasilan saja adalah <strong>bunuh diri secara finansial</strong>.
+                Anda butuh ban serep."
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== AUTHORITY ==================== -->
+    <section id="authority">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-label"><i class="fa-solid fa-user-check"></i> Tentang Penulis</span>
+                <h2 class="section-title">Bukan Sekadar Teori.<br>Ini Rekam Jejak Nyata.</h2>
+            </div>
+
+            <div class="authority-inner fade-in">
+                <div class="authority-photo">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="authority-bio">
+                    <h3>Kresna Galuh</h3>
+                    <span class="title-tag"><i class="fa-solid fa-building"></i> Founder CODEPOLITAN | 10+ Tahun di
+                        EdTech</span>
+                    <p>
+                        Selama 10 tahun membangun startup edukasi pemrograman dan merilis ratusan produk digital
+                        yang digunakan <strong>ratusan ribu talenta digital di Indonesia</strong>, saya melihat pola
+                        yang sama berulang kali.
+                    </p>
+                    <p>
+                        Banyak orang pintar teknis gagal menghasilkan uang karena mereka jago bikin fitur,
+                        tapi <strong>tidak punya strategi rilis yang jelas</strong>.
+                    </p>
+                    <p>
+                        Buku Side Hustle Sprint <strong>BUKAN buku motivasi</strong>. Ini adalah buku eksekusi.
+                        Saya memadatkan pengalaman 10 tahun tersebut menjadi framework taktis yang bisa Anda
+                        praktikkan hanya dengan <strong>2 jam sehari</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHAT'S INSIDE ==================== -->
+    <section id="inside">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-label"><i class="fa-solid fa-box-open"></i> Isi Blueprint</span>
+                <h2 class="section-title">Apa yang Anda Bedah<br>di Dalam Blueprint Ini?</h2>
+                <p class="section-sub">Kerangka kerja 15 hari yang siap dieksekusi sepulang kerja.</p>
+            </div>
+
+            <div class="inside-grid">
+                <div class="inside-card fade-in">
+                    <div class="inside-card-icon"><i class="fa-solid fa-check"></i></div>
+                    <div>
+                        <h3>Validasi Ide Anti-Gagal</h3>
+                        <p>Cara menemukan ide produk digital yang pasti laku dan menghindari jebakan membuat produk yang
+                            tidak ada pasarnya.</p>
+                    </div>
+                </div>
+                <div class="inside-card fade-in">
+                    <div class="inside-card-icon"><i class="fa-solid fa-check"></i></div>
+                    <div>
+                        <h3>Merakit MVP Secepat Kilat</h3>
+                        <p>Strategi membuang fitur tidak penting dan merilis versi dasar tanpa terjebak perfeksionisme.
+                        </p>
+                    </div>
+                </div>
+                <div class="inside-card fade-in">
+                    <div class="inside-card-icon"><i class="fa-solid fa-check"></i></div>
+                    <div>
+                        <h3>Copywriting & Strategi Rilis</h3>
+                        <p>Template merangkai kata-kata promosi dan strategi "Rilis Terbatas" untuk mencetak penjualan
+                            pertama Anda.</p>
+                    </div>
+                </div>
+                <div class="inside-card fade-in">
+                    <div class="inside-card-icon"><i class="fa-solid fa-check"></i></div>
+                    <div>
+                        <h3>Mindset Builder ke Seller</h3>
+                        <p>Transisi mental yang wajib dimiliki orang teknis: berhenti coding sejenak, dan mulailah
+                            belajar berjualan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRICING ==================== -->
+    <section id="pricing">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-label"><i class="fa-solid fa-tag"></i> Penawaran</span>
+                <h2 class="section-title">Satu Paket. Semua Senjata<br>yang Anda Butuhkan.</h2>
+                <p class="section-sub">Investasi terkecil untuk membangun mesin penghasilan tambahan Anda.</p>
+            </div>
+
+            <div class="pricing-card fade-in">
+                <div class="pricing-card-header">
+                    <i class="fa-solid fa-star" style="color:#FFD700;font-size:1.4rem;"></i>
+                    <h2>THE PRO BUNDLE ACCESS</h2>
+                    <p>Dapatkan Buku + Senjata Eksekusinya</p>
+                </div>
+                <div class="pricing-card-body">
+                    <ul class="pricing-items">
+                        <li>
+                            <i class="fa-solid fa-book"></i>
+                            <div><strong>Ebook Side Hustle Sprint (PDF)</strong><br>
+                                <span style="font-size:0.82rem;color:var(--gray-text);">Framework eksekusi 15 hari
+                                    lengkap</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-brands fa-square-js" style="color:#e67e22;"></i>
+                            <div><strong>BONUS: Template Notion Tracker 15 Hari</strong><br>
+                                <span style="font-size:0.82rem;color:var(--gray-text);">Papan eksekusi harian siap
+                                    pakai</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-robot"></i>
+                            <div><strong>BONUS: Kumpulan AI Prompt Siap Pakai</strong><br>
+                                <span style="font-size:0.82rem;color:var(--gray-text);">Prompt untuk copywriting,
+                                    validasi, & rilis</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="pricing-price">
+                        <p class="original">Nilai Normal: Rp 249.000</p>
+                        <div class="final">Rp 68.000</div>
+                        <span class="tag">Early Bird — Hanya Setara 2 Gelas Kopi</span>
+                    </div>
+
+                    <a href="https://lynk.id" target="_blank" rel="noopener" class="btn-primary">
+                        <i class="fa-solid fa-rocket"></i> Saya Mau Pro Bundle-nya Sekarang
+                    </a>
+
+                    <p class="pricing-note">
+                        <i class="fa-solid fa-lock"></i>
+                        Anda akan diarahkan ke halaman pembayaran aman <strong>Lynk.id</strong>.<br>
+                        Pastikan centang opsi <strong>"Pro Bundle"</strong> saat checkout.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer-divider"></div>
+        <p>© 2026 <strong>Kresna Galuh</strong>. All rights reserved.</p>
+        <p>Sebuah karya dari Founder <strong>Codepolitan</strong>.</p>
+        <div class="footer-divider"></div>
+        <p style="font-size:0.75rem;margin-top:4px;">
+            <i class="fa-solid fa-shield-halved"></i> Pembayaran aman &nbsp;|&nbsp;
+            <i class="fa-solid fa-bolt"></i> Akses instan &nbsp;|&nbsp;
+            <i class="fa-solid fa-headset"></i> Support aktif
+        </p>
+    </footer>
+
+    <!-- ==================== JS: Scroll Fade-in ==================== -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
 </body>
 
 </html>
