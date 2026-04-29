@@ -1,0 +1,600 @@
+/* ============================================================
+   DESIGN TOKENS
+============================================================ */
+:root {
+    --red: #D72638;
+    --red-dark: #B01E2C;
+    --black: #111111;
+    --white: #FFFFFF;
+    --gray-light: #F5F5F5;
+    --gray-mid: #E8E8E8;
+    --gray-text: #555555;
+    --section-pad-y: 80px;
+}
+
+/* ============================================================
+   BASE
+============================================================ */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ============================================================
+   NAV
+============================================================ */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--black);
+    padding: 14px 20px;
+}
+
+.nav-brand {
+    color: var(--white);
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.nav-brand span {
+    color: var(--red);
+}
+
+.nav-cta {
+    background: var(--red);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+
+.nav-cta:hover {
+    background: var(--red-dark);
+    color: var(--white);
+}
+
+/* ============================================================
+   SECTION UTILITIES
+============================================================ */
+.section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.section-sub {
+    font-size: 1rem;
+    color: var(--gray-text);
+    margin-bottom: 40px;
+}
+
+.btn-primary-red {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 16px 32px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-primary-red:hover {
+    background: var(--red-dark);
+    color: var(--white);
+}
+
+.btn-primary-red:active {
+    transform: scale(0.98);
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+#hero {
+    background: var(--black);
+    color: var(--white);
+    padding: var(--section-pad-y) 0;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(215, 38, 56, 0.15);
+    border: 1px solid var(--red);
+    color: var(--red);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+}
+
+.hero-headline {
+    font-size: clamp(2rem, 8vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+
+.hero-headline .accent {
+    color: var(--red);
+}
+
+.hero-sub {
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    color: #aaa;
+    max-width: 580px;
+    margin: 0 auto 32px;
+}
+
+.hero-trust {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.hero-trust i {
+    color: #4caf50;
+}
+
+.hero-mockup {
+    margin: 48px auto 0;
+    max-width: 420px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+}
+
+.hero-mockup-icon {
+    font-size: 5rem;
+    margin-bottom: 12px;
+    line-height: 1;
+}
+
+.hero-mockup h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 4px;
+}
+
+.hero-mockup p {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.hero-mockup-badge {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--red);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 3px;
+}
+
+/* ============================================================
+   PROBLEM SECTION
+============================================================ */
+#problem {
+    background: var(--gray-light);
+    padding: var(--section-pad-y) 0;
+}
+
+#problem .section-label {
+    color: var(--red);
+}
+
+.problem-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 24px;
+    border-left: 4px solid var(--red);
+    height: 100%;
+}
+
+.problem-card-icon {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+
+.problem-card h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.problem-card p {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    line-height: 1.65;
+    margin: 0;
+}
+
+.problem-quote {
+    background: var(--black);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 28px 24px;
+    text-align: center;
+    font-size: clamp(0.9rem, 3vw, 1.05rem);
+    line-height: 1.7;
+    font-style: italic;
+    margin-top: 24px;
+}
+
+.problem-quote i {
+    color: var(--red);
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* ============================================================
+   AUTHORITY
+============================================================ */
+#authority {
+    background: var(--white);
+    padding: var(--section-pad-y) 0;
+}
+
+#authority .section-label {
+    color: var(--red);
+}
+
+.authority-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--gray-mid);
+    border: 4px solid var(--red);
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #aaa;
+}
+
+.authority-bio h3 {
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-bottom: 4px;
+}
+
+.authority-bio .title-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--red);
+    background: rgba(215, 38, 56, 0.08);
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+}
+
+.authority-bio p {
+    font-size: 0.95rem;
+    color: var(--gray-text);
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.authority-bio strong {
+    color: var(--black);
+}
+
+/* ============================================================
+   WHAT'S INSIDE
+============================================================ */
+#inside {
+    background: var(--gray-light);
+    padding: var(--section-pad-y) 0;
+}
+
+#inside .section-label {
+    color: var(--red);
+}
+
+.inside-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.inside-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background: rgba(215, 38, 56, 0.1);
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.inside-card h3 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.inside-card p {
+    font-size: 0.875rem;
+    color: var(--gray-text);
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ============================================================
+   PRICING
+============================================================ */
+#pricing {
+    background: var(--white);
+    padding: var(--section-pad-y) 0;
+}
+
+#pricing .section-label {
+    color: var(--red);
+}
+
+/* --- Pricing Card Base --- */
+.pricing-card {
+    background: #fff;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 14px;
+    padding: 28px 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+}
+
+.pricing-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+}
+
+/* --- Paket Badge --- */
+.pricing-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+}
+
+.pricing-badge.basic {
+    background: rgba(45, 160, 90, 0.12);
+    color: #2da05a;
+    border: 1px solid #2da05a;
+}
+
+.pricing-badge.pro {
+    background: rgba(59, 100, 220, 0.1);
+    color: #3b64dc;
+    border: 1px solid #3b64dc;
+}
+
+/* --- Popular Card --- */
+.pricing-card.popular {
+    border: 2px solid #3b64dc;
+    box-shadow: 0 8px 32px rgba(59,100,220,0.13);
+}
+
+/* --- Pricing Name --- */
+.pricing-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--black);
+}
+
+/* --- Price Row --- */
+.pricing-price-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.pricing-final {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1;
+}
+
+.pricing-original {
+    font-size: 0.9rem;
+    color: #aaa;
+    text-decoration: line-through;
+}
+
+.pricing-save {
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: #e8f5e9;
+    color: #2da05a;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+/* --- Feature List --- */
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    flex: 1;
+}
+
+.pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--black);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-mid);
+    line-height: 1.5;
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+.pricing-features li .fi-check {
+    color: #2da05a;
+    font-size: 0.85rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.pricing-features li .fi-plus {
+    color: #3b64dc;
+    font-size: 0.85rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+    font-weight: 800;
+}
+
+/* --- CTA inside card --- */
+.pricing-cta {
+    display: block;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 14px 20px;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.1s;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+
+.pricing-cta.basic-cta {
+    background: var(--gray-light);
+    color: var(--black);
+    border: 1.5px solid var(--gray-mid);
+}
+
+.pricing-cta.basic-cta:hover {
+    background: var(--gray-mid);
+    color: var(--black);
+}
+
+.pricing-cta.pro-cta {
+    background: #3b64dc;
+    color: #fff;
+}
+
+.pricing-cta.pro-cta:hover {
+    background: #2a4fb5;
+    color: #fff;
+}
+
+.pricing-cta:active {
+    transform: scale(0.98);
+}
+
+.pricing-note {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--gray-text);
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.pricing-note i {
+    color: #4caf50;
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+    background: var(--black);
+    color: #aaa;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+footer strong {
+    color: var(--white);
+}
+
+.footer-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--red);
+    margin: 16px auto;
+}
+
+/* ============================================================
+   SCROLL FADE-IN
+============================================================ */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

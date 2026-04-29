@@ -1,882 +1,1937 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Hustle Sprint – Ubah Skill Digital Jadi Penghasilan Tambahan</title>
-    <meta name="description"
-        content="Framework eksekusi brutal 15 Hari untuk merakit, merilis, dan mencetak penjualan dari produk digital Anda—tanpa harus resign.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        /* ============================================================
-           RESET & BASE
-        ============================================================ */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #1a1a1a;
-            background: #fff;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ============================================================
-           DESIGN TOKENS
-        ============================================================ */
-        :root {
-            --red: #D72638;
-            --red-dark: #B01E2C;
-            --black: #111111;
-            --white: #FFFFFF;
-            --gray-light: #F5F5F5;
-            --gray-mid: #E8E8E8;
-            --gray-text: #555555;
-            --section-pad: 64px 20px;
-        }
-
-        /* ============================================================
-           UTILITY
-        ============================================================ */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background: var(--red);
-            color: var(--white);
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 16px 32px;
-            border-radius: 6px;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
-            text-align: center;
-            width: 100%;
-        }
-
-        .btn-primary:hover {
-            background: var(--red-dark);
-        }
-
-        .btn-primary:active {
-            transform: scale(0.98);
-        }
-
-        .section-label {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: clamp(1.6rem, 5vw, 2.4rem);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 16px;
-        }
-
-        .section-sub {
-            font-size: 1rem;
-            color: var(--gray-text);
-            margin-bottom: 40px;
-        }
-
-        /* ============================================================
-           NAV
-        ============================================================ */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: var(--black);
-            padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-brand {
-            color: var(--white);
-            font-weight: 800;
-            font-size: 1rem;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-brand span {
-            color: var(--red);
-        }
-
-        .nav-cta {
-            background: var(--red);
-            color: var(--white);
-            font-weight: 700;
-            font-size: 0.8rem;
-            padding: 8px 16px;
-            border-radius: 4px;
-            white-space: nowrap;
-            transition: background 0.2s;
-        }
-
-        .nav-cta:hover {
-            background: var(--red-dark);
-        }
-
-        /* ============================================================
-           HERO SECTION
-        ============================================================ */
-        #hero {
-            background: var(--black);
-            color: var(--white);
-            padding: var(--section-pad);
-            text-align: center;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(215, 38, 56, 0.15);
-            border: 1px solid var(--red);
-            color: var(--red);
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 5px 12px;
-            border-radius: 100px;
-            margin-bottom: 24px;
-        }
-
-        .hero-headline {
-            font-size: clamp(2rem, 8vw, 3.4rem);
-            font-weight: 900;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            margin-bottom: 20px;
-        }
-
-        .hero-headline .accent {
-            color: var(--red);
-        }
-
-        .hero-sub {
-            font-size: clamp(0.95rem, 3vw, 1.1rem);
-            color: #aaa;
-            max-width: 580px;
-            margin: 0 auto 32px;
-        }
-
-        .hero-trust {
-            font-size: 0.8rem;
-            color: #777;
-            margin-top: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .hero-trust i {
-            color: #4caf50;
-        }
-
-        .hero-mockup {
-            margin: 48px auto 0;
-            max-width: 420px;
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            border-radius: 12px;
-            padding: 28px;
-            text-align: center;
-        }
-
-        .hero-mockup-icon {
-            font-size: 5rem;
-            margin-bottom: 12px;
-            line-height: 1;
-        }
-
-        .hero-mockup h3 {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--white);
-            margin-bottom: 4px;
-        }
-
-        .hero-mockup p {
-            font-size: 0.8rem;
-            color: #777;
-        }
-
-        .hero-mockup-badge {
-            display: inline-block;
-            margin-top: 12px;
-            background: var(--red);
-            color: var(--white);
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 3px;
-        }
-
-        /* ============================================================
-           PROBLEM SECTION
-        ============================================================ */
-        #problem {
-            background: var(--gray-light);
-            padding: var(--section-pad);
-        }
-
-        #problem .section-label {
-            color: var(--red);
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .problem-card {
-            background: var(--white);
-            border-radius: 8px;
-            padding: 24px;
-            border-left: 4px solid var(--red);
-        }
-
-        .problem-card-icon {
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-        }
-
-        .problem-card h3 {
-            font-size: 1rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .problem-card p {
-            font-size: 0.9rem;
-            color: var(--gray-text);
-            line-height: 1.65;
-        }
-
-        .problem-quote {
-            background: var(--black);
-            color: var(--white);
-            border-radius: 8px;
-            padding: 28px 24px;
-            text-align: center;
-            font-size: clamp(0.9rem, 3vw, 1.05rem);
-            line-height: 1.7;
-            font-style: italic;
-        }
-
-        .problem-quote i {
-            color: var(--red);
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        /* ============================================================
-           AUTHORITY SECTION
-        ============================================================ */
-        #authority {
-            background: var(--white);
-            padding: var(--section-pad);
-        }
-
-        #authority .section-label {
-            color: var(--red);
-        }
-
-        .authority-inner {
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-            align-items: center;
-        }
-
-        .authority-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: var(--gray-mid);
-            border: 4px solid var(--red);
-            overflow: hidden;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: #aaa;
-        }
-
-        .authority-bio h3 {
-            font-size: 1.3rem;
-            font-weight: 900;
-            margin-bottom: 4px;
-        }
-
-        .authority-bio .title-tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--red);
-            background: rgba(215, 38, 56, 0.08);
-            padding: 3px 10px;
-            border-radius: 100px;
-            margin-bottom: 16px;
-        }
-
-        .authority-bio p {
-            font-size: 0.95rem;
-            color: var(--gray-text);
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-
-        .authority-bio p:last-child {
-            margin-bottom: 0;
-        }
-
-        .authority-bio strong {
-            color: var(--black);
-        }
-
-        /* ============================================================
-           WHAT'S INSIDE SECTION
-        ============================================================ */
-        #inside {
-            background: var(--gray-light);
-            padding: var(--section-pad);
-        }
-
-        #inside .section-label {
-            color: var(--red);
-        }
-
-        .inside-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
-        }
-
-        .inside-card {
-            background: var(--white);
-            border-radius: 8px;
-            padding: 24px;
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-        }
-
-        .inside-card-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 6px;
-            background: rgba(215, 38, 56, 0.1);
-            color: var(--red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            flex-shrink: 0;
-        }
-
-        .inside-card h3 {
-            font-size: 0.95rem;
-            font-weight: 800;
-            margin-bottom: 6px;
-        }
-
-        .inside-card p {
-            font-size: 0.875rem;
-            color: var(--gray-text);
-            line-height: 1.65;
-        }
-
-        /* ============================================================
-           PRICING SECTION
-        ============================================================ */
-        #pricing {
-            background: var(--white);
-            padding: var(--section-pad);
-        }
-
-        #pricing .section-label {
-            color: var(--red);
-        }
-
-        .pricing-card {
-            border: 2px solid var(--red);
-            border-radius: 12px;
-            overflow: hidden;
-            max-width: 520px;
-            margin: 0 auto;
-        }
-
-        .pricing-card-header {
-            background: var(--black);
-            color: var(--white);
-            text-align: center;
-            padding: 24px 20px;
-        }
-
-        .pricing-card-header i {
-            color: goldenrod;
-            font-size: 1.2rem;
-        }
-
-        .pricing-card-header h2 {
-            font-size: 1.2rem;
-            font-weight: 900;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            margin: 8px 0 4px;
-        }
-
-        .pricing-card-header p {
-            font-size: 0.8rem;
-            color: #aaa;
-        }
-
-        .pricing-card-body {
-            background: var(--white);
-            padding: 28px 24px;
-        }
-
-        .pricing-items {
-            list-style: none;
-            margin-bottom: 24px;
-        }
-
-        .pricing-items li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 0.9rem;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--gray-mid);
-            color: var(--black);
-        }
-
-        .pricing-items li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-items li i {
-            color: var(--red);
-            font-size: 0.9rem;
-            margin-top: 2px;
-            flex-shrink: 0;
-        }
-
-        .pricing-items li strong {
-            font-weight: 700;
-        }
-
-        .pricing-price {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .pricing-price .original {
-            font-size: 0.9rem;
-            color: #aaa;
-            text-decoration: line-through;
-            margin-bottom: 6px;
-        }
-
-        .pricing-price .final {
-            font-size: clamp(2.4rem, 10vw, 3.2rem);
-            font-weight: 900;
-            color: var(--red);
-            line-height: 1;
-        }
-
-        .pricing-price .tag {
-            display: inline-block;
-            background: var(--red);
-            color: var(--white);
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 3px;
-            margin-top: 8px;
-        }
-
-        .pricing-note {
-            text-align: center;
-            font-size: 0.78rem;
-            color: var(--gray-text);
-            margin-top: 14px;
-            line-height: 1.6;
-        }
-
-        .pricing-note i {
-            color: #4caf50;
-        }
-
-        /* ============================================================
-           FOOTER
-        ============================================================ */
-        footer {
-            background: var(--black);
-            color: #aaa;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.85rem;
-            line-height: 1.8;
-        }
-
-        footer strong {
-            color: var(--white);
-        }
-
-        footer .footer-divider {
-            width: 40px;
-            height: 2px;
-            background: var(--red);
-            margin: 16px auto;
-        }
-
-        /* ============================================================
-           RESPONSIVE – TABLET & ABOVE
-        ============================================================ */
-        @media (min-width: 600px) {
-            .problem-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .inside-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .authority-inner {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-
-            .authority-photo {
-                width: 140px;
-                height: 140px;
-            }
-
-            .btn-primary {
-                width: auto;
-                font-size: 1.05rem;
-                padding: 18px 40px;
-            }
-        }
-
-        /* ============================================================
-           SCROLL FADE-IN (minimal JS animation)
-        ============================================================ */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Side Hustle Sprint — Blueprint 15 Hari Membangun Mesin Penghasilan dari Produk Digital</title>
+<meta name="description" content="Buku panduan eksekusi 15 hari untuk membangun produk digital pertamamu — hanya 2 jam sehari, tanpa harus resign. Oleh Kresna Galuh, Founder Codepolitan." />
+
+<meta property="og:title" content="Side Hustle Sprint — Blueprint 15 Hari" />
+<meta property="og:description" content="Blueprint eksekusi 15 hari untuk meluncurkan produk digital pertamamu. 2 jam sehari. Tanpa resign." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;0,8..60,800;1,8..60,400;1,8..60,600;1,8..60,700&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1a1613;
+    --ink-soft: #2c2520;
+    --cream: #f5efe6;
+    --cream-deep: #ebe2d3;
+    --paper: #faf6ee;
+    --brick: #c63d2f;
+    --brick-deep: #a52d22;
+    --brick-soft: #e85a4a;
+    --gold: #d4a73d;
+    --muted: #6b5f54;
+    --line: rgba(26, 22, 19, 0.12);
+
+    --display: 'Source Serif 4', Georgia, serif;
+    --body: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+  .display {
+    font-family: var(--display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-variation-settings: "opsz" 60;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--brick);
+    font-weight: 500;
+    display: block;
+  }
+  em.italic-display {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  section { position: relative; }
+
+  .announce {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+  }
+  .announce strong { color: var(--gold); }
+  .announce .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--brick-soft);
+    border-radius: 50%;
+    margin: 0 8px;
+    vertical-align: middle;
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .nav {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    background: rgba(250, 246, 238, 0.92);
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+  .logo span { color: var(--brick); font-style: italic; }
+  .nav-cta {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .hero {
+    padding: 40px 0 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(198, 61, 47, 0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(198, 61, 47, 0.08);
+    border: 1px solid rgba(198, 61, 47, 0.2);
+    border-radius: 999px;
+    color: var(--brick-deep);
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 24px;
+  }
+  .hero-tag::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--brick);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+  .hero h1 .accent {
+    color: var(--brick);
+    font-style: italic;
+  }
+  .hero h1 .underline {
+    background: linear-gradient(180deg, transparent 65%, rgba(212, 167, 61, 0.4) 65%);
+    padding: 0 4px;
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 28px;
+    line-height: 1.55;
+  }
+
+  .book-stage {
+    position: relative;
+    margin: 32px auto 32px;
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 280 / 380;
+  }
+  .book-mockup {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-3deg);
+    animation: bookFloat 6s ease-in-out infinite;
+  }
+  @keyframes bookFloat {
+    0%, 100% { transform: rotate(-3deg) translateY(0); }
+    50% { transform: rotate(-2deg) translateY(-8px); }
+  }
+  .book-cover {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--brick) 0%, var(--brick-deep) 100%);
+    border-radius: 4px 8px 8px 4px;
+    box-shadow:
+      -2px 0 0 rgba(0,0,0,0.1) inset,
+      0 20px 40px rgba(0,0,0,0.2),
+      0 8px 20px rgba(198, 61, 47, 0.3);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--cream);
+    overflow: hidden;
+  }
+  .book-cover::before {
+    content: "";
+    position: absolute;
+    left: 8px; top: 0; bottom: 0;
+    width: 2px;
+    background: rgba(0,0,0,0.15);
+  }
+  .book-tagline {
+    font-size: 10px;
+    line-height: 1.5;
+    opacity: 0.9;
+    font-weight: 500;
+  }
+  .book-title {
+    font-family: var(--body);
+    font-size: 36px;
+    line-height: 0.95;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .book-author {
+    font-family: var(--body);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .badge-floating {
+    position: absolute;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    z-index: 5;
+    line-height: 1.3;
+  }
+  .badge-1 {
+    top: 20px;
+    left: -12px;
+    transform: rotate(-6deg);
+    animation: badgeFloat 5s ease-in-out infinite;
+  }
+  .badge-1 strong { color: var(--gold); display: block; font-size: 15px; font-family: var(--display); font-style: italic; line-height: 1; margin-bottom: 2px; }
+  .badge-2 {
+    bottom: 40px;
+    right: -12px;
+    transform: rotate(5deg);
+    background: var(--cream);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    animation: badgeFloat 5s ease-in-out infinite reverse;
+  }
+  .badge-2 strong { color: var(--brick); display: block; font-size: 15px; font-family: var(--display); font-style: italic; line-height: 1; margin-bottom: 2px; }
+  @keyframes badgeFloat {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -6px; }
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--brick);
+    color: var(--cream);
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    width: 100%;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 0 var(--brick-deep), 0 6px 20px rgba(198, 61, 47, 0.25);
+  }
+  .btn-primary:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--brick-deep), 0 3px 10px rgba(198, 61, 47, 0.25);
+  }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    padding: 14px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    border-bottom: 2px solid var(--ink);
+    margin-top: 12px;
+  }
+  .hero-cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 28px;
+  }
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+  .hero-trust .stars { color: var(--gold); letter-spacing: 2px; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .section-header h2 {
+    font-size: 30px;
+    margin: 14px 0;
+    line-height: 1.15;
+  }
+  .section-header p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .empathy {
+    background: var(--cream);
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .empathy-inner { text-align: center; }
+  .empathy h2 {
+    font-size: 26px;
+    margin: 16px 0 24px;
+    line-height: 1.25;
+  }
+  .empathy p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .empathy p:last-of-type { margin-bottom: 0; }
+  .empathy strong { color: var(--ink); font-weight: 600; }
+  .signature-line {
+    width: 50px;
+    height: 2px;
+    background: var(--brick);
+    margin: 32px auto 0;
+  }
+
+  .problem {
+    background: var(--paper);
+    padding: 64px 0;
+  }
+  .problem-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 36px;
+  }
+  .problem-card {
+    background: var(--cream);
+    padding: 28px 24px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  .problem-num {
+    font-family: var(--display);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--brick);
+    line-height: 1;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .problem-card h3 {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .problem-card p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .stakes {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 72px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .stakes::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(198, 61, 47, 0.15), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(212, 167, 61, 0.08), transparent 40%);
+    pointer-events: none;
+  }
+  .stakes-inner { position: relative; }
+  .stakes h2 {
+    font-size: 30px;
+    margin-bottom: 18px;
+    line-height: 1.15;
+  }
+  .stakes h2 em { color: var(--brick-soft); font-weight: 700; }
+  .stakes-lead {
+    font-size: 16px;
+    line-height: 1.65;
+    color: rgba(245, 239, 230, 0.8);
+    margin-bottom: 36px;
+  }
+  .escalator-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .escalator-item {
+    padding: 24px 20px;
+    border-left: 3px solid var(--brick);
+    background: rgba(255,255,255,0.03);
+    border-radius: 0 8px 8px 0;
+  }
+  .escalator-item .ico {
+    font-family: var(--display);
+    font-size: 28px;
+    margin-bottom: 12px;
+    color: var(--brick-soft);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1;
+  }
+  .escalator-item h4 {
+    font-family: var(--display);
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--cream);
+    font-weight: 700;
+  }
+  .escalator-item p {
+    font-size: 14px;
+    color: rgba(245, 239, 230, 0.65);
+    line-height: 1.55;
+  }
+
+  .solution {
+    background: var(--paper);
+    padding: 64px 0;
+  }
+  .solution-header h2 {
+    font-size: 32px;
+    margin: 14px 0;
+    line-height: 1.1;
+  }
+  .solution-header h2 .accent { color: var(--brick); font-style: italic; }
+  .solution-header p.lead {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-top: 16px;
+  }
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 36px;
+  }
+  .pillar {
+    text-align: center;
+    padding: 24px 16px;
+    background: var(--cream);
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  .pillar-num {
+    font-family: var(--display);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--brick), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  .pillar-label {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .pillar-sub {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .inside {
+    background: var(--cream);
+    padding: 64px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .chapters {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .chapter {
+    background: var(--paper);
+    padding: 22px 24px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .chapter-num {
+    font-family: var(--display);
+    font-size: 32px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--brick);
+    line-height: 1;
+  }
+  .chapter-num small {
+    display: block;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 4px;
+  }
+  .chapter h4 {
+    font-family: var(--display);
+    font-size: 18px;
+    margin-bottom: 6px;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+  .chapter h4 .day-tag {
+    display: inline-block;
+    color: var(--brick);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    font-style: normal;
+    font-weight: 500;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+  .chapter p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .endorse {
+    background: var(--paper);
+    padding: 64px 0;
+  }
+  .endorse-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .endorse-header h2 {
+    font-size: 30px;
+    margin: 14px 0;
+    line-height: 1.15;
+  }
+  .endorse-header p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .endorse-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .endorse-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 28px 24px;
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .endorse-card.featured {
+    background: linear-gradient(180deg, var(--ink), var(--ink-soft));
+    color: var(--cream);
+    border-color: var(--ink);
+  }
+  .endorse-quote {
+    font-family: var(--display);
+    font-size: 17px;
+    line-height: 1.55;
+    margin-bottom: 24px;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--ink);
+    padding-left: 16px;
+    border-left: 3px solid var(--brick);
+  }
+  .endorse-card.featured .endorse-quote {
+    color: var(--cream);
+    border-left-color: var(--gold);
+  }
+  .endorse-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .endorse-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--brick), var(--brick-deep));
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+    border: 2px solid var(--paper);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .endorse-card.featured .endorse-avatar { border-color: var(--gold); }
+  .endorse-meta strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+  .endorse-meta span {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    display: block;
+  }
+  .endorse-card.featured .endorse-meta span { color: rgba(245, 239, 230, 0.6); }
+  .endorse-note {
+    text-align: center;
+    margin-top: 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .guide {
+    background: var(--cream);
+    padding: 64px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .guide-photo {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: var(--cream-deep);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    max-width: 320px;
+    margin: 0 auto 40px;
+  }
+  .guide-photo-placeholder {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--cream-deep), var(--cream));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 12px;
+    text-align: center;
+    padding: 24px;
+  }
+  .guide-stats {
+    position: absolute;
+    bottom: -16px;
+    right: -8px;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+  .guide-stats strong {
+    font-family: var(--display);
+    font-size: 28px;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 2px;
+    font-style: italic;
+    font-weight: 700;
+  }
+  .guide-stats span {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.8;
+  }
+  .guide-content h2 {
+    font-size: 30px;
+    margin: 14px 0 24px;
+    line-height: 1.15;
+  }
+  .guide-content h2 em {
+    color: var(--brick);
+    font-style: italic;
+  }
+  .guide-content > p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .credentials {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .cred-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+  .cred-item strong {
+    font-family: var(--display);
+    font-size: 32px;
+    color: var(--brick);
+    line-height: 1;
+    font-style: italic;
+    font-weight: 700;
+  }
+  .cred-item span {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .plan {
+    background: var(--paper);
+    padding: 64px 0;
+  }
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 40px;
+  }
+  .step {
+    text-align: center;
+    position: relative;
+  }
+  .step:not(:last-child)::after {
+    content: "↓";
+    position: absolute;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--brick);
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .step-num {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 16px;
+    background: var(--cream);
+    border: 3px solid var(--brick);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--brick);
+    font-style: italic;
+    box-shadow: 0 6px 18px rgba(198, 61, 47, 0.15);
+  }
+  .step h3 {
+    font-family: var(--display);
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .step p {
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  .compare {
+    background: var(--cream);
+    padding: 64px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .compare-col {
+    background: var(--paper);
+    border-radius: 16px;
+    padding: 28px 24px;
+    border: 1px solid var(--line);
+  }
+  .compare-col.bad { border-color: rgba(198, 61, 47, 0.25); }
+  .compare-col.good {
+    border: 2px solid var(--brick);
+    background: linear-gradient(180deg, var(--paper), var(--cream));
+  }
+  .compare-col h3 {
+    font-family: var(--display);
+    font-size: 20px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .compare-col.bad h3::before { content: "✕  "; color: var(--brick); font-weight: bold; }
+  .compare-col.good h3::before { content: "✓  "; color: var(--brick); font-weight: bold; }
+  .compare-col ul { list-style: none; }
+  .compare-col li {
+    padding: 10px 0;
+    font-size: 14px;
+    line-height: 1.55;
+    border-bottom: 1px dashed var(--line);
+  }
+  .compare-col li:last-child { border-bottom: none; }
+  .compare-col.bad li { color: var(--muted); }
+
+  .pricing {
+    background: var(--paper);
+    padding: 64px 0;
+  }
+  .pricing-header h2 {
+    font-size: 32px;
+    margin: 14px 0;
+    line-height: 1.1;
+  }
+  .pricing-header h2 em { color: var(--brick); font-style: italic; }
+  .pricing-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 36px;
+  }
+  .price-card {
+    background: var(--cream);
+    border: 2px solid var(--line);
+    border-radius: 20px;
+    padding: 32px 24px;
+    position: relative;
+  }
+  .price-card.featured {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+    margin-top: 14px;
+  }
+  .price-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--ink);
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .price-name {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .price-tagline {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 22px;
+    line-height: 1.5;
+  }
+  .featured .price-tagline { color: rgba(245, 239, 230, 0.65); }
+  .price-amount {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .price-amount .current {
+    font-family: var(--display);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .price-amount .original {
+    font-size: 16px;
+    color: var(--muted);
+    text-decoration: line-through;
+  }
+  .featured .price-amount .original { color: rgba(245, 239, 230, 0.5); }
+  .price-save {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--brick);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 22px;
+  }
+  .featured .price-save { color: var(--gold); }
+  .price-list {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+  .price-list li {
+    padding: 9px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--line);
+    line-height: 1.5;
+  }
+  .featured .price-list li { border-color: rgba(245, 239, 230, 0.1); }
+  .price-list li:last-child { border-bottom: none; }
+  .price-list .check {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    background: var(--brick);
+    color: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 2px;
+  }
+  .featured .price-list .check { background: var(--gold); color: var(--ink); }
+  .price-list small {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .featured .price-list small { color: rgba(245, 239, 230, 0.55); }
+  .new-tag {
+    display: inline-block;
+    background: var(--brick);
+    color: var(--cream);
+    font-size: 9px;
+    font-family: var(--mono);
+    padding: 2px 7px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-left: 4px;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+  .featured .new-tag { background: var(--gold); color: var(--ink); }
+
+  .price-cta {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    background: var(--ink);
+    color: var(--cream);
+    box-shadow: 0 4px 0 #000, 0 6px 16px rgba(0,0,0,0.15);
+    display: block;
+    text-align: center;
+  }
+  .featured .price-cta {
+    background: var(--brick);
+    box-shadow: 0 4px 0 var(--brick-deep), 0 6px 16px rgba(198, 61, 47, 0.3);
+  }
+
+  .pricing-note {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    padding: 0 8px;
+  }
+  .pricing-note strong { color: var(--ink); }
+
+  .guarantee {
+    background: var(--cream);
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .guarantee-card {
+    background: var(--paper);
+    border: 2px dashed var(--brick);
+    border-radius: 20px;
+    padding: 56px 24px 32px;
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+  }
+  .guarantee-seal {
+    width: 88px;
+    height: 88px;
+    position: absolute;
+    top: -44px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--brick);
+    color: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-weight: 700;
+    box-shadow: 0 8px 24px rgba(198, 61, 47, 0.3);
+    border: 4px solid var(--cream);
+  }
+  .guarantee-seal strong { font-size: 30px; line-height: 1; font-style: italic; }
+  .guarantee-seal span { font-size: 9px; font-family: var(--mono); letter-spacing: 0.1em; margin-top: 2px; font-weight: 500; font-style: normal; }
+  .guarantee h2 {
+    font-family: var(--display);
+    font-size: 26px;
+    margin-bottom: 14px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  .guarantee p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+  .guarantee p:last-child { margin-bottom: 0; }
+  .guarantee strong { color: var(--brick); font-weight: 700; }
+  .guarantee em.note {
+    font-style: italic;
+    font-family: var(--display);
+    color: var(--muted);
+    display: block;
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .faq {
+    background: var(--paper);
+    padding: 64px 0;
+  }
+  .faq-list { margin-top: 32px; }
+  .faq-item { border-bottom: 1px solid var(--line); }
+  .faq-q {
+    width: 100%;
+    text-align: left;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    line-height: 1.35;
+  }
+  .faq-q .toggle {
+    width: 28px;
+    height: 28px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--brick);
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+  .faq-item[open] .toggle {
+    background: var(--brick);
+    color: var(--cream);
+    transform: rotate(45deg);
+  }
+  .faq-a {
+    padding: 0 0 22px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+  details summary { list-style: none; }
+  details summary::-webkit-details-marker { display: none; }
+
+  .final {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 72px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 50%, rgba(198, 61, 47, 0.2), transparent 50%),
+      radial-gradient(circle at 70% 50%, rgba(212, 167, 61, 0.1), transparent 50%);
+  }
+  .final-inner { position: relative; }
+  .final h2 {
+    font-size: 32px;
+    margin: 14px 0 20px;
+    line-height: 1.1;
+  }
+  .final h2 em { color: var(--brick-soft); font-style: italic; font-weight: 700; }
+  .final p {
+    font-size: 16px;
+    color: rgba(245, 239, 230, 0.78);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+  .final .btn-primary {
+    background: var(--brick);
+    padding: 18px 28px;
+    font-size: 16px;
+  }
+  .final-note {
+    margin-top: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(245, 239, 230, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.6;
+  }
+
+  .footer {
+    background: var(--ink);
+    color: rgba(245, 239, 230, 0.55);
+    padding: 32px 0 100px;
+    border-top: 1px solid rgba(245, 239, 230, 0.1);
+    font-size: 12px;
+  }
+  .footer-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .footer a:hover { color: var(--cream); }
+  .footer-links { display: flex; gap: 20px; justify-content: center; }
+
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    padding: 12px 16px;
+    z-index: 100;
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.08);
+  }
+  .sticky-cta a {
+    display: block;
+    background: var(--brick);
+    color: var(--cream);
+    padding: 14px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  /* TABLET (≥640px) */
+  @media (min-width: 640px) {
+    body { font-size: 17px; }
+    .container { padding: 0 32px; max-width: 720px; }
+
+    .hero { padding: 56px 0 72px; }
+    .hero h1 { font-size: 48px; }
+    .hero-sub { font-size: 17px; }
+    .book-stage { max-width: 320px; }
+    .book-title { font-size: 42px; }
+
+    .hero-cta-row { flex-direction: row; align-items: center; gap: 12px; }
+    .btn-primary { width: auto; }
+    .btn-secondary { margin-top: 0; }
+
+    .section-header h2 { font-size: 38px; }
+    .empathy h2 { font-size: 32px; }
+    .stakes h2 { font-size: 36px; }
+    .solution-header h2 { font-size: 40px; }
+    .pricing-header h2 { font-size: 40px; }
+    .final h2 { font-size: 42px; }
+    .guide-content h2 { font-size: 36px; }
+    .guarantee h2 { font-size: 32px; }
+
+    .pillars { grid-template-columns: repeat(4, 1fr); }
+    .escalator-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .chapters { display: grid; grid-template-columns: repeat(2, 1fr); }
+    .endorse-stack { display: grid; grid-template-columns: repeat(2, 1fr); }
+    .endorse-card.featured { grid-column: span 2; }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: start; }
+    .price-card.featured { margin-top: 0; transform: translateY(-12px); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .step:not(:last-child)::after {
+      content: "→";
+      bottom: auto;
+      top: 32px;
+      left: auto;
+      right: -16px;
+      transform: none;
+    }
+  }
+
+  /* DESKTOP (≥1024px) */
+  @media (min-width: 1024px) {
+    .container { max-width: 1100px; padding: 0 40px; }
+
+    .empathy, .problem, .stakes, .solution, .inside, .endorse, .guide, .plan, .compare, .pricing, .guarantee, .faq, .final {
+      padding: 96px 0;
+    }
+
+    .hero { padding: 80px 0 96px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .hero-text { order: 1; }
+    .book-stage { order: 2; max-width: 360px; margin: 0; }
+    .hero h1 { font-size: 64px; }
+    .book-title { font-size: 48px; }
+
+    .section-header h2 { font-size: 48px; }
+    .empathy h2 { font-size: 40px; }
+    .empathy p { font-size: 18px; }
+    .stakes h2 { font-size: 48px; }
+    .stakes-lead { font-size: 19px; max-width: 720px; }
+    .solution-header h2 { font-size: 52px; }
+    .pricing-header h2 { font-size: 48px; }
+    .final h2 { font-size: 56px; }
+    .guide-content h2 { font-size: 44px; }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .guide-photo { margin: 0; max-width: 100%; }
+    .credentials { grid-template-columns: repeat(3, 1fr); display: grid; gap: 24px; }
+    .cred-item { grid-template-columns: 1fr; gap: 4px; }
+
+    .endorse-quote { font-size: 19px; }
+
+    .footer { padding: 48px 0 32px; }
+    .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; text-align: left; }
+    .sticky-cta { display: none; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
 </head>
-
 <body>
 
-    <!-- NAV -->
-    <nav>
-        <div class="nav-brand">Side Hustle <span>Sprint</span></div>
-        <a href="#pricing" class="nav-cta">
-            <i class="fa-solid fa-bolt"></i> Beli Sekarang
-        </a>
-    </nav>
+<div class="announce">
+  <span class="dot"></span> <strong>HARGA EARLY LAUNCH</strong> · Hanya minggu ini
+</div>
 
-    <!-- ==================== HERO ==================== -->
-    <section id="hero">
-        <div class="container">
-            <div class="hero-badge">
-                <i class="fa-solid fa-circle" style="font-size:0.5rem;"></i>
-                Rilis Perdana: Harga Early Bird Tersedia
-            </div>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">Side Hustle <span>Sprint</span></a>
+    <a href="#pricing" class="nav-cta">Ambil Buku →</a>
+  </div>
+</nav>
 
-            <h1 class="hero-headline">
-                Ubah Skill Digital Anda Menjadi<br>
-                <span class="accent">Mesin Penghasilan Tambahan</span>
-            </h1>
-
-            <p class="hero-sub">
-                Framework eksekusi brutal 15 Hari untuk merakit, merilis, dan mencetak
-                penjualan dari produk digital Anda—tanpa harus resign.
-            </p>
-
-            <a href="#pricing" class="btn-primary" style="max-width:400px;margin:0 auto;display:block;">
-                <i class="fa-solid fa-rocket"></i> Amankan Blueprint Sekarang
-            </a>
-
-            <p class="hero-trust">
-                <i class="fa-solid fa-lock"></i>
-                Akses Instan. Pembayaran Aman via Midtrans.
-            </p>
-
-            <!-- Book Mockup -->
-            <div class="hero-mockup">
-                <div class="hero-mockup-icon">📕</div>
-                <h3>Side Hustle Sprint</h3>
-                <p>Ebook PDF + Notion Tracker 15 Hari + AI Prompt Pack</p>
-                <span class="hero-mockup-badge"><i class="fa-solid fa-star"></i> PRO BUNDLE</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== PROBLEM ==================== -->
-    <section id="problem">
-        <div class="container">
-            <div class="text-center fade-in">
-                <span class="section-label"><i class="fa-solid fa-triangle-exclamation"></i> Pain Point</span>
-                <h2 class="section-title">Jago Teknis,<br>Tapi Gagal Finansial?</h2>
-                <p class="section-sub">
-                    Jika Anda merasa tersindir dengan salah satu poin di bawah,
-                    buku ini ditulis untuk Anda:
-                </p>
-            </div>
-
-            <div class="problem-grid fade-in">
-                <div class="problem-card">
-                    <div class="problem-card-icon"><i class="fa-solid fa-screwdriver-wrench"
-                            style="color:var(--red)"></i></div>
-                    <h3>Terjebak "Builder's Curse"</h3>
-                    <p>Sering bikin side project berbulan-bulan, pengen fiturnya sempurna. Tapi ujung-ujungnya cuma jadi
-                        pajangan di localhost dan nggak pernah rilis.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-card-icon"><i class="fa-solid fa-bullhorn" style="color:var(--red)"></i></div>
-                    <h3>Buta Cara Jualan</h3>
-                    <p>Produknya udah jadi, tapi pas dirilis nggak ada yang beli. Bingung nulis copywriting dan nggak
-                        tau gimana cara masarinnya ke publik.</p>
-                </div>
-            </div>
-
-            <div class="problem-quote fade-in">
-                <i class="fa-solid fa-quote-left"></i>
-                "Gaji bulanan memang aman, tapi bayang-bayang tech winter dan layoff membuktikan:
-                Mengandalkan satu sumber penghasilan saja adalah <strong>bunuh diri secara finansial</strong>.
-                Anda butuh ban serep."
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== AUTHORITY ==================== -->
-    <section id="authority">
-        <div class="container">
-            <div class="text-center fade-in">
-                <span class="section-label"><i class="fa-solid fa-user-check"></i> Tentang Penulis</span>
-                <h2 class="section-title">Bukan Sekadar Teori.<br>Ini Rekam Jejak Nyata.</h2>
-            </div>
-
-            <div class="authority-inner fade-in">
-                <div class="authority-photo">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                <div class="authority-bio">
-                    <h3>Kresna Galuh</h3>
-                    <span class="title-tag"><i class="fa-solid fa-building"></i> Founder CODEPOLITAN | 10+ Tahun di
-                        EdTech</span>
-                    <p>
-                        Selama 10 tahun membangun startup edukasi pemrograman dan merilis ratusan produk digital
-                        yang digunakan <strong>ratusan ribu talenta digital di Indonesia</strong>, saya melihat pola
-                        yang sama berulang kali.
-                    </p>
-                    <p>
-                        Banyak orang pintar teknis gagal menghasilkan uang karena mereka jago bikin fitur,
-                        tapi <strong>tidak punya strategi rilis yang jelas</strong>.
-                    </p>
-                    <p>
-                        Buku Side Hustle Sprint <strong>BUKAN buku motivasi</strong>. Ini adalah buku eksekusi.
-                        Saya memadatkan pengalaman 10 tahun tersebut menjadi framework taktis yang bisa Anda
-                        praktikkan hanya dengan <strong>2 jam sehari</strong>.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== WHAT'S INSIDE ==================== -->
-    <section id="inside">
-        <div class="container">
-            <div class="text-center fade-in">
-                <span class="section-label"><i class="fa-solid fa-box-open"></i> Isi Blueprint</span>
-                <h2 class="section-title">Apa yang Anda Bedah<br>di Dalam Blueprint Ini?</h2>
-                <p class="section-sub">Kerangka kerja 15 hari yang siap dieksekusi sepulang kerja.</p>
-            </div>
-
-            <div class="inside-grid">
-                <div class="inside-card fade-in">
-                    <div class="inside-card-icon"><i class="fa-solid fa-check"></i></div>
-                    <div>
-                        <h3>Validasi Ide Anti-Gagal</h3>
-                        <p>Cara menemukan ide produk digital yang pasti laku dan menghindari jebakan membuat produk yang
-                            tidak ada pasarnya.</p>
-                    </div>
-                </div>
-                <div class="inside-card fade-in">
-                    <div class="inside-card-icon"><i class="fa-solid fa-check"></i></div>
-                    <div>
-                        <h3>Merakit MVP Secepat Kilat</h3>
-                        <p>Strategi membuang fitur tidak penting dan merilis versi dasar tanpa terjebak perfeksionisme.
-                        </p>
-                    </div>
-                </div>
-                <div class="inside-card fade-in">
-                    <div class="inside-card-icon"><i class="fa-solid fa-check"></i></div>
-                    <div>
-                        <h3>Copywriting & Strategi Rilis</h3>
-                        <p>Template merangkai kata-kata promosi dan strategi "Rilis Terbatas" untuk mencetak penjualan
-                            pertama Anda.</p>
-                    </div>
-                </div>
-                <div class="inside-card fade-in">
-                    <div class="inside-card-icon"><i class="fa-solid fa-check"></i></div>
-                    <div>
-                        <h3>Mindset Builder ke Seller</h3>
-                        <p>Transisi mental yang wajib dimiliki orang teknis: berhenti coding sejenak, dan mulailah
-                            belajar berjualan.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== PRICING ==================== -->
-    <section id="pricing">
-        <div class="container">
-            <div class="text-center fade-in">
-                <span class="section-label"><i class="fa-solid fa-tag"></i> Penawaran</span>
-                <h2 class="section-title">Satu Paket. Semua Senjata<br>yang Anda Butuhkan.</h2>
-                <p class="section-sub">Investasi terkecil untuk membangun mesin penghasilan tambahan Anda.</p>
-            </div>
-
-            <div class="pricing-card fade-in">
-                <div class="pricing-card-header">
-                    <i class="fa-solid fa-star" style="color:#FFD700;font-size:1.4rem;"></i>
-                    <h2>THE PRO BUNDLE ACCESS</h2>
-                    <p>Dapatkan Buku + Senjata Eksekusinya</p>
-                </div>
-                <div class="pricing-card-body">
-                    <ul class="pricing-items">
-                        <li>
-                            <i class="fa-solid fa-book"></i>
-                            <div><strong>Ebook Side Hustle Sprint (PDF)</strong><br>
-                                <span style="font-size:0.82rem;color:var(--gray-text);">Framework eksekusi 15 hari
-                                    lengkap</span>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fa-brands fa-square-js" style="color:#e67e22;"></i>
-                            <div><strong>BONUS: Template Notion Tracker 15 Hari</strong><br>
-                                <span style="font-size:0.82rem;color:var(--gray-text);">Papan eksekusi harian siap
-                                    pakai</span>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-robot"></i>
-                            <div><strong>BONUS: Kumpulan AI Prompt Siap Pakai</strong><br>
-                                <span style="font-size:0.82rem;color:var(--gray-text);">Prompt untuk copywriting,
-                                    validasi, & rilis</span>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <div class="pricing-price">
-                        <p class="original">Nilai Normal: Rp 249.000</p>
-                        <div class="final">Rp 68.000</div>
-                        <span class="tag">Early Bird — Hanya Setara 2 Gelas Kopi</span>
-                    </div>
-
-                    <a href="https://lynk.id" target="_blank" rel="noopener" class="btn-primary">
-                        <i class="fa-solid fa-rocket"></i> Saya Mau Pro Bundle-nya Sekarang
-                    </a>
-
-                    <p class="pricing-note">
-                        <i class="fa-solid fa-lock"></i>
-                        Anda akan diarahkan ke halaman pembayaran aman <strong>Lynk.id</strong>.<br>
-                        Pastikan centang opsi <strong>"Pro Bundle"</strong> saat checkout.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== FOOTER ==================== -->
-    <footer>
-        <div class="footer-divider"></div>
-        <p>© 2026 <strong>Kresna Galuh</strong>. All rights reserved.</p>
-        <p>Sebuah karya dari Founder <strong>Codepolitan</strong>.</p>
-        <div class="footer-divider"></div>
-        <p style="font-size:0.75rem;margin-top:4px;">
-            <i class="fa-solid fa-shield-halved"></i> Pembayaran aman &nbsp;|&nbsp;
-            <i class="fa-solid fa-bolt"></i> Akses instan &nbsp;|&nbsp;
-            <i class="fa-solid fa-headset"></i> Support aktif
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="hero-tag">Buku Eksekusi · 64 Hal · 2 Jam Sehari</span>
+        <h1 class="display">
+          Blueprint <span class="accent">15 Hari</span> Membangun <span class="underline">Mesin Penghasilan</span> dari Produk Digital.
+        </h1>
+        <p class="hero-sub">
+          Untuk kamu yang gajinya cuma numpang lewat — tapi tidak tahu harus mulai dari mana. Hanya 2 jam sehari. Tanpa coding. Tanpa harus resign.
         </p>
-    </footer>
+        <div class="hero-cta-row">
+          <a href="#pricing" class="btn-primary">Mulai dari Rp 78.000 →</a>
+          <a href="#chapters" class="btn-secondary">Lihat isi bukunya</a>
+        </div>
+        <div class="hero-trust">
+          <span class="stars">★★★★★</span>
+          <span>Dari Founder Codepolitan — 200K+ alumni</span>
+        </div>
+      </div>
 
-    <!-- ==================== JS: Scroll Fade-in ==================== -->
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+      <div class="book-stage">
+        <div class="badge-floating badge-1">
+          <strong>15 Hari</strong>
+          Sampai produk rilis
+        </div>
+        <div class="book-mockup">
+          <div class="book-cover">
+            <div class="book-tagline">Blueprint 15 Hari Membangun Mesin Penghasilan dari Produk Digital — Hanya 2 Jam Sehari</div>
+            <div class="book-title">Side<br>Hustle<br>Sprint</div>
+            <div class="book-author">Kresna Galuh</div>
+          </div>
+        </div>
+        <div class="badge-floating badge-2">
+          <strong>2 Jam/Hari</strong>
+          Tanpa resign
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
+<section class="empathy">
+  <div class="container empathy-inner">
+    <span class="eyebrow">Saya Pernah Ada di Posisi Itu</span>
+    <h2 class="display">"Gaji masuk tanggal 25, habis sebelum tanggal 20."</h2>
+    <p>Kerja full-time di sebuah <em class="italic-display">digital agency</em>. Tidak ada dana darurat. Tidak ada "ban serep". Dan yang paling menyiksa — saya tidak tahu harus mulai dari mana.</p>
+    <p>Yang akhirnya mengubah semuanya adalah satu keputusan kecil: mulai membangun produk digital di sela-sela jam kerja. Hanya 2 jam sehari. Tanpa resign.</p>
+    <p>Dari titik itulah <strong>Codepolitan</strong> lahir. Sekarang sudah 200.000+ anggota, dan menjadi pekerjaan utama saya. Buku ini adalah sari pati dari 15 tahun perjalanan itu.</p>
+    <div class="signature-line"></div>
+  </div>
+</section>
+
+<section class="problem">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Masalahnya Bukan Cuma Soal Uang</span>
+      <h2 class="display">Kalau gaji cuma satu, kamu sedang berjalan <em class="italic-display">tanpa ban serep.</em></h2>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-num">01</div>
+        <h3>Gaji Habis di Minggu Ketiga</h3>
+        <p>Bukan karena boros — tapi karena Earning Power kamu masih satu sumber. Seketat apapun berhemat, hasilnya cuma cukup, tidak pernah lebih.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">02</div>
+        <h3>Cemas Tiap Ada Berita PHK</h3>
+        <p>Loyalitas tidak menjamin apa-apa. Pekerjaan kamu bisa hilang dalam satu meeting yang bahkan tidak pernah kamu hadiri.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">03</div>
+        <h3>Punya Skill, Tidak Menghasilkan</h3>
+        <p>Ada keahlian yang sudah kamu kuasai bertahun-tahun. Tapi belum jadi uang. Padahal harusnya bisa — kamu cuma belum tahu cara membungkusnya jadi produk.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stakes">
+  <div class="container stakes-inner">
+    <span class="eyebrow" style="color: var(--brick-soft);">Yang Hilang Kalau Kamu Tunda</span>
+    <h2 class="display">Setiap hari tanpa "ban serep" finansial adalah <em>hari yang rentan.</em></h2>
+    <p class="stakes-lead">Hidup di era ini ibarat menaiki eskalator yang bergerak turun. Diam = terseret mundur (tergilas inflasi). Berjalan = stuck di tempat. Hanya yang berlari yang naik.</p>
+
+    <div class="escalator-grid">
+      <div class="escalator-item">
+        <div class="ico">↗</div>
+        <h4>Harga Properti Naik</h4>
+        <p>Kenaikan harga rumah berlari jauh meninggalkan persentase kenaikan gaji. Semakin lama menunggu, semakin jauh impian rumah pertama.</p>
+      </div>
+      <div class="escalator-item">
+        <div class="ico">↗</div>
+        <h4>Biaya Hidup Melonjak</h4>
+        <p>Sekolah anak, listrik, kesehatan — semuanya naik. Sementara kenaikan gaji tidak pernah secepat itu. Ini bukan paranoid, ini matematika.</p>
+      </div>
+      <div class="escalator-item">
+        <div class="ico">↗</div>
+        <h4>Ancaman PHK Tidak Hilang</h4>
+        <p>Raksasa teknologi mem-PHK ribuan orang bukan karena bangkrut — tapi karena pergeseran strategi. Di Indonesia gelombangnya semakin nyata.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="container">
+    <div class="section-header solution-header">
+      <span class="eyebrow">Solusinya: Framework, Bukan Motivasi</span>
+      <h2 class="display">Side Hustle Sprint adalah <span class="accent">peta jalan taktis</span> — bukan motivasi kosong.</h2>
+      <p class="lead">Lahir dari 15 tahun pengalaman membangun Codepolitan dari nol. Bukan rangkuman buku orang lain — ini sari pati pelajaran nyata di lapangan.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">15</div>
+        <div class="pillar-label">Hari Sprint</div>
+        <div class="pillar-sub">Dari ide ke rilis</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">2</div>
+        <div class="pillar-label">Jam Sehari</div>
+        <div class="pillar-sub">Sambil tetap kerja</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">5</div>
+        <div class="pillar-label">Tahap Linear</div>
+        <div class="pillar-sub">Tidak meraba-raba</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">8</div>
+        <div class="pillar-label">Bab + Worksheet</div>
+        <div class="pillar-sub">Langsung praktik</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="inside" id="chapters">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Apa yang Kamu Dapatkan</span>
+      <h2 class="display">8 Bab. <em class="italic-display">Satu peta jalan utuh.</em></h2>
+      <p>Setiap bab dilengkapi worksheet yang bisa langsung diisi. Bukan teori — ini panduan eksekusi harian.</p>
+    </div>
+
+    <div class="chapters">
+      <div class="chapter">
+        <div class="chapter-num">01<small>Bab</small></div>
+        <div>
+          <h4>Fondasi Side Hustle</h4>
+          <p>Kenapa kamu butuh side hustle sekarang juga, bukan nanti. Bedanya dengan kerja sampingan dan side project.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">02<small>Bab</small></div>
+        <div>
+          <h4>Peluang Emas Produk Digital</h4>
+          <p>Kenapa produk digital adalah kendaraan paling masuk akal — modal kecil, margin besar, jualan otomatis 24/7.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">03<small>Bab</small></div>
+        <div>
+          <h4>Framework Side Hustle Sprint</h4>
+          <p>Peta jalan 5 tahap. Dari Validasi Ide sampai Evolusi Bisnis. Cetak biru utuh sebelum mulai.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">04<small>Bab</small></div>
+        <div>
+          <h4>Tahap 1: Validasi Ide <span class="day-tag">— HARI 1–3</span></h4>
+          <p>Cara mencari ide yang spesifik, masalah yang "pedas", dan teknik Cek Ombak agar tidak buang waktu produksi.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">05<small>Bab</small></div>
+        <div>
+          <h4>Tahap 2: Eksekusi Produksi <span class="day-tag">— HARI 4–12</span></h4>
+          <p>Strategi jalan pintas dengan AI, daur ulang aset lama, dan metode kurasi. Selesai &gt; Sempurna.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">06<small>Bab</small></div>
+        <div>
+          <h4>Tahap 3: Rilis Terbatas <span class="day-tag">— HARI 13–15</span></h4>
+          <p>Copywriting penawaran, strategi Harga Kopi, dan 3 opsi etalase dari paling sederhana sampai profesional.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">07<small>Bab</small></div>
+        <div>
+          <h4>Tahap 4: Penjualan Pertama</h4>
+          <p>Cara mendapat pembeli pertama, membangun mesin testimoni, dan menggali umpan balik dari penolakan.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">08<small>Bab</small></div>
+        <div>
+          <h4>Tahap 5: Evolusi Bisnis</h4>
+          <p>Kapan harus Pivot, kapan harus Iterate. Strategi memperbesar skala dari produk mikro ke mesin bisnis nyata.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="endorse">
+  <div class="container">
+    <div class="endorse-header">
+      <span class="eyebrow">Endorsement</span>
+      <h2 class="display">Apa kata para founder yang sudah <em class="italic-display">membaca duluan.</em></h2>
+      <p>Bukan dari pembeli biasa — tapi dari founder yang sudah membangun bisnisnya sendiri.</p>
+    </div>
+
+    <div class="endorse-stack">
+      <div class="endorse-card featured">
+        <p class="endorse-quote">"[ Kutipan endorsement dari founder utama akan diisi di sini. Idealnya 2-3 kalimat yang menyoroti kekuatan utama buku — apakah frameworknya, eksekusinya, atau relevansinya untuk pasar Indonesia. ]"</p>
+        <div class="endorse-author">
+          <div class="endorse-avatar">[ ]</div>
+          <div class="endorse-meta">
+            <strong>[ Nama Founder ]</strong>
+            <span>[ Jabatan, Perusahaan ]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="endorse-card">
+        <p class="endorse-quote">"[ Kutipan endorsement founder kedua. ]"</p>
+        <div class="endorse-author">
+          <div class="endorse-avatar">[ ]</div>
+          <div class="endorse-meta">
+            <strong>[ Nama Founder ]</strong>
+            <span>[ Jabatan, Perusahaan ]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="endorse-card">
+        <p class="endorse-quote">"[ Kutipan endorsement founder ketiga. ]"</p>
+        <div class="endorse-author">
+          <div class="endorse-avatar">[ ]</div>
+          <div class="endorse-meta">
+            <strong>[ Nama Founder ]</strong>
+            <span>[ Jabatan, Perusahaan ]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="endorse-note">// Ganti placeholder dengan endorsement asli dari founder Anda</p>
+  </div>
+</section>
+
+<section class="guide">
+  <div class="container">
+    <div class="guide-grid">
+      <div class="guide-photo">
+        <div class="guide-photo-placeholder">[ Foto Kresna Galuh<br>akan dipasang di sini ]</div>
+        <div class="guide-stats">
+          <strong>200K+</strong>
+          <span>Alumni Codepolitan</span>
+        </div>
+      </div>
+      <div class="guide-content">
+        <span class="eyebrow">Tentang Penulis</span>
+        <h2 class="display">Kresna Galuh — Founder <em>Codepolitan.</em></h2>
+        <p>15 tahun membangun side hustle. 10 tahun mengembangkan Codepolitan dari sekadar proyek sampingan saat masih kerja di digital agency, hingga menjadi platform edukasi teknologi dengan 200.000+ alumni.</p>
+        <p>Sudah merilis ratusan produk digital — termasuk yang gagal. Buku ini adalah formula yang akhirnya saya temukan dari semua jatuh-bangun itu, agar kamu tidak perlu mengulangi kesalahan yang sama.</p>
+        <div class="credentials">
+          <div class="cred-item">
+            <strong>15+</strong>
+            <span>Tahun pengalaman side hustle</span>
+          </div>
+          <div class="cred-item">
+            <strong>10+</strong>
+            <span>Tahun membangun Codepolitan</span>
+          </div>
+          <div class="cred-item">
+            <strong>100+</strong>
+            <span>Produk digital sudah dirilis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plan">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Cara Kerjanya</span>
+      <h2 class="display">3 Langkah. <em class="italic-display">Itu saja.</em></h2>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Baca Frameworknya</h3>
+        <p>Pelajari blueprint 15 hari dari validasi ide, eksekusi produksi, hingga rilis terbatas. Setiap bab dilengkapi worksheet.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Eksekusi 2 Jam Sehari</h3>
+        <p>Kerjakan target harian sesuai panduan. Bisa dikerjakan malam hari setelah pulang kerja, tanpa resign.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Rilis di Hari Ke-15</h3>
+        <p>Produk digital pertamamu siap dijual. Validasi dengan uang asli dari pembeli nyata — bukan sekadar teori.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compare">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Bedanya Apa?</span>
+      <h2 class="display">Kebanyakan panduan side hustle <em class="italic-display">tidak akan membantumu rilis.</em></h2>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-col bad">
+        <h3>Panduan Side Hustle Biasa</h3>
+        <ul>
+          <li>Berisi motivasi kosong tanpa langkah konkret</li>
+          <li>Mengajarkan teori jangka panjang yang abstrak</li>
+          <li>Mengasumsikan kamu punya banyak waktu luang</li>
+          <li>Membuatmu mengumpulkan ilmu, tidak rilis produk</li>
+          <li>Tidak ada tenggat waktu eksekusi yang jelas</li>
+          <li>Berakhir di laptop sebagai PDF tak terpakai</li>
+        </ul>
+      </div>
+      <div class="compare-col good">
+        <h3>Side Hustle Sprint</h3>
+        <ul>
+          <li>Blueprint eksekusi harian — Hari 1 sampai Hari 15</li>
+          <li>Lahir dari 15 tahun pengalaman lapangan, bukan teori</li>
+          <li>Dirancang untuk orang sibuk — 2 jam sehari cukup</li>
+          <li>Memaksamu rilis produk nyata di Hari ke-15</li>
+          <li>Worksheet tiap bab — langsung diisi, langsung action</li>
+          <li>Membuatmu punya produk yang dijual ke pembeli asli</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-header pricing-header">
+      <span class="eyebrow">Pilih Paketmu</span>
+      <h2 class="display">Lebih murah dari <em>satu kali makan di luar.</em></h2>
+      <p>Investasi yang membayar dirinya sendiri di hari ke-15.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Paket Basic</div>
+        <div class="price-tagline">Untuk yang ingin mulai dengan modal minimum.</div>
+        <div class="price-amount">
+          <span class="current">Rp 78.000</span>
+          <span class="original">Rp 199.000</span>
+        </div>
+        <div class="price-save">Hemat 60% — Harga Early Launch</div>
+
+        <ul class="price-list">
+          <li><span class="check">✓</span> Ebook PDF Side Hustle Sprint (64 halaman)</li>
+          <li><span class="check">✓</span> Worksheet interaktif tiap bab</li>
+          <li><span class="check">✓</span> Framework 5 tahap + peta jalan 15 hari</li>
+          <li><span class="check">✓</span> Akses lifetime — update gratis selamanya</li>
+        </ul>
+
+        <a href="#" class="price-cta">Ambil Paket Basic →</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Paling Direkomendasikan</div>
+        <div class="price-name">Pro Bundle</div>
+        <div class="price-tagline">Untuk yang serius langsung action — tanpa mulai dari nol.</div>
+        <div class="price-amount">
+          <span class="current">Rp 123.000</span>
+          <span class="original">Rp 244.000</span>
+        </div>
+        <div class="price-save">Hemat 50% — Selisih +Rp 45rb</div>
+
+        <ul class="price-list">
+          <li><span class="check">✓</span> Semua isi Paket Basic</li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>Notion Master Tracker</strong> <span class="new-tag">Baru</span>
+              <small>Papan kerja siap duplikat — Hari 1 sampai Hari 15</small>
+            </div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>AI Prompt Library</strong> <span class="new-tag">Baru</span>
+              <small>12 prompt khusus tiap fase Sprint — copy, isi, enter</small>
+            </div>
+          </li>
+          <li><span class="check">✓</span> Akses lifetime — update gratis selamanya</li>
+        </ul>
+
+        <a href="#" class="price-cta">Ambil Pro Bundle →</a>
+      </div>
+    </div>
+
+    <p class="pricing-note">
+      <strong>Selisih cuma Rp 45.000</strong> — setara satu kali ngopi di kafe. Tapi menghemat berjam-jam waktu kamu untuk mulai dari nol.
+    </p>
+  </div>
+</section>
+
+<section class="guarantee">
+  <div class="container">
+    <div class="guarantee-card">
+      <div class="guarantee-seal">
+        <strong>3</strong>
+        <span>HARI</span>
+      </div>
+      <h2 class="display">Garansi untuk Mereka <em class="italic-display">yang Serius Belajar.</em></h2>
+      <p>
+        Beli sekarang, langsung baca, langsung praktik. Jika dalam <strong>3 hari pertama</strong> kamu sudah mencoba menerapkan frameworknya dan benar-benar merasa buku ini tidak cocok untukmu — kirim email ke <strong>kresnagaluh@gmail.com</strong> dan saya kembalikan uangmu.
+      </p>
+      <em class="note">Garansi ini sengaja saya buat singkat. Buku ini untuk mereka yang langsung action — bukan yang menunda-nunda.</em>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Pertanyaan yang Sering Ditanyakan</span>
+      <h2 class="display">Sebelum kamu memutuskan.</h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary class="faq-q">
+          Saya tidak bisa coding. Apakah masih bisa ikut?
+          <span class="toggle">+</span>
+        </summary>
+        <div class="faq-a">
+          Bisa, dan justru buku ini dirancang untuk kamu yang non-coding. Ada 7 jenis produk mikro yang dibahas — dari template, workbook, panduan ringkas, sampai aset kreatif. Coding hanya salah satu opsi, bukan keharusan. Pilih format yang paling cocok dengan keahlian yang sudah kamu punya.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          Saya kerja full-time, sangat sibuk. Beneran cuma 2 jam sehari?
+          <span class="toggle">+</span>
+        </summary>
+        <div class="faq-a">
+          Ya. Frameworknya didesain spesifik untuk orang sibuk. Bahkan ada "Aturan 15 Menit" — kalau lagi benar-benar lelah, kerjakan 15 menit saja agar momentum tidak padam. Yang penting konsisten, bukan jumlah jam. Kresna sendiri membangun Codepolitan sambil kerja full-time di agency.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          Bedanya Paket Basic dan Pro Bundle apa?
+          <span class="toggle">+</span>
+        </summary>
+        <div class="faq-a">
+          Basic adalah ebooknya saja + worksheet. Pro Bundle menambahkan dua sistem siap pakai di Notion: Master Tracker (papan kerja yang mengikuti tiap tahap di buku) dan AI Prompt Library (12 prompt yang sudah dirancang khusus tiap fase Sprint). Selisihnya cuma Rp 45.000, tapi menghemat berjam-jam waktu untuk mulai dari nol. Kalau kamu serius mau langsung action — Pro Bundle pilihan yang masuk akal.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          Apa yang terjadi setelah saya membayar?
+          <span class="toggle">+</span>
+        </summary>
+        <div class="faq-a">
+          File akan terkirim otomatis ke email kamu setelah pembayaran berhasil. Untuk Pro Bundle, kamu juga akan dapat panduan aktivasi template Notion-nya. Akses lifetime — update versi berikutnya gratis tanpa biaya tambahan.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          Saya pemula total. Bukunya cocok untuk saya?
+          <span class="toggle">+</span>
+        </summary>
+        <div class="faq-a">
+          Sangat cocok. Justru buku ini ditulis untuk pemula yang belum pernah membuat produk digital sebelumnya. Bahasanya dibuat ringkas, langsung praktik, dan setiap tahap dipecah jadi target harian yang jelas. Tidak ada teori bertele-tele.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          Bagaimana garansinya bekerja?
+          <span class="toggle">+</span>
+        </summary>
+        <div class="faq-a">
+          Sederhana: dalam 3 hari pertama setelah pembelian, kalau kamu sudah mencoba menerapkan frameworknya dan merasa tidak cocok, kirim email ke kresnagaluh@gmail.com — saya kembalikan uangnya. Garansi ini sengaja singkat karena buku ini untuk yang langsung action, bukan yang menunda-nunda berminggu-minggu sebelum membaca.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          Apakah harganya akan naik?
+          <span class="toggle">+</span>
+        </summary>
+        <div class="faq-a">
+          Ya. Harga Rp 78.000 dan Rp 123.000 adalah harga Early Launch. Setelah periode launch berakhir, harga akan kembali normal ke Rp 199.000 dan Rp 244.000. Selama harga coret masih terlihat di halaman ini, kamu masih bisa dapat harga early launch.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="container final-inner">
+    <span class="eyebrow" style="color: var(--brick-soft);">Mulai Sekarang, Bukan Nanti</span>
+    <h2 class="display">
+      Membangun ban serep saat mobil masih berjalan mulus jauh lebih bijak <em>daripada baru mencarinya saat sudah mogok.</em>
+    </h2>
+    <p>The perfect time doesn't exist. Mulailah sekarang, mumpung kamu masih punya pekerjaan utama sebagai jaring pengaman.</p>
+    <a href="#pricing" class="btn-primary">Ambil Bukunya — Mulai Rp 78.000 →</a>
+    <div class="final-note">
+      ✓ Akses lifetime  ·  ✓ Update gratis  ·  ✓ Garansi 3 hari
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© 2026 Kresna Galuh × Codepolitan</div>
+    <div class="footer-links">
+      <a href="mailto:kresnagaluh@gmail.com">Email</a>
+      <a href="https://instagram.com/kresnagaluh.id" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://codepolitan.com" target="_blank" rel="noopener">Codepolitan</a>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="#pricing">Ambil Bukunya — Mulai Rp 78.000 →</a>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+  const faqs = document.querySelectorAll('.faq-item');
+  faqs.forEach((faq) => {
+    faq.addEventListener('toggle', () => {
+      if (faq.open) {
+        faqs.forEach((other) => {
+          if (other !== faq) other.removeAttribute('open');
+        });
+      }
+    });
+  });
+</script>
 
 </body>
-
 </html>
