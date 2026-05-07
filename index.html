@@ -1353,6 +1353,108 @@
     opacity: 1;
     transform: translateY(0);
   }
+  /* ============ MIRROR SECTION ============ */
+  .mirror {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 56px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .mirror::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 90% 10%, rgba(198, 61, 47, 0.12), transparent 50%),
+      radial-gradient(circle at 10% 90%, rgba(212, 167, 61, 0.06), transparent 50%);
+    pointer-events: none;
+  }
+  .mirror .eyebrow {
+    color: var(--gold);
+    position: relative;
+  }
+  .mirror-heading {
+    font-size: 26px;
+    margin: 14px 0 36px;
+    line-height: 1.15;
+    position: relative;
+  }
+
+  .mirror-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    margin-bottom: 40px;
+  }
+  .mirror-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(245, 239, 230, 0.08);
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(245, 239, 230, 0.9);
+    position: relative;
+    transition: color 0.2s;
+  }
+  .mirror-item:last-child {
+    border-bottom: none;
+  }
+  .mirror-check {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: rgba(198, 61, 47, 0.2);
+    border: 1px solid rgba(198, 61, 47, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--brick-soft);
+    margin-top: 1px;
+  }
+
+  .mirror-close {
+    border-top: 1px solid rgba(245, 239, 230, 0.12);
+    padding-top: 32px;
+    text-align: center;
+    position: relative;
+  }
+  .mirror-close p {
+    font-size: 16px;
+    color: rgba(245, 239, 230, 0.6);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .mirror-close-strong {
+    font-family: var(--display);
+    font-size: 28px !important;
+    font-weight: 700;
+    color: var(--cream) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 0 !important;
+  }
+
+  @media (min-width: 640px) {
+    .mirror-heading { font-size: 36px; }
+    .mirror-item { font-size: 17px; gap: 20px; padding: 20px 0; }
+    .mirror-check { width: 26px; height: 26px; font-size: 12px; }
+    .mirror-close-strong { font-size: 34px !important; }
+  }
+
+  @media (min-width: 1024px) {
+    .mirror { padding: 96px 0; }
+    .mirror-heading { font-size: 44px; }
+    .mirror-list { max-width: 760px; margin-left: auto; margin-right: auto; margin-bottom: 48px; }
+    .mirror-item { font-size: 18px; padding: 22px 0; }
+    .mirror-close-strong { font-size: 40px !important; }
+  }
+
 </style>
 </head>
 <body>
@@ -1410,14 +1512,42 @@
   </div>
 </section>
 
-<section class="empathy">
-  <div class="container empathy-inner">
-    <span class="eyebrow">Saya Pernah Ada di Posisi Itu</span>
-    <h2 class="display">"Gaji masuk tanggal 25, habis sebelum tanggal 20."</h2>
-    <p>Kerja full-time di sebuah <em class="italic-display">digital agency</em>. Tidak ada dana darurat. Tidak ada "ban serep". Dan yang paling menyiksa — saya tidak tahu harus mulai dari mana.</p>
-    <p>Yang akhirnya mengubah semuanya adalah satu keputusan kecil: mulai membangun produk digital di sela-sela jam kerja. Hanya 2 jam sehari. Tanpa resign.</p>
-    <p>Dari titik itulah <strong>Codepolitan</strong> lahir. Sekarang sudah 200.000+ anggota, dan menjadi pekerjaan utama saya. Buku ini adalah sari pati dari 15 tahun perjalanan itu.</p>
-    <div class="signature-line"></div>
+<section class="mirror">
+  <div class="container">
+    <span class="eyebrow">Buku Ini Ditulis untuk Kamu</span>
+    <h2 class="display mirror-heading">Baca ini dulu <em class="italic-display">sebelum scroll lebih jauh.</em></h2>
+
+    <div class="mirror-list">
+      <div class="mirror-item">
+        <span class="mirror-check">✓</span>
+        <span>Gaji masuk — langsung habis buat tagihan. Sebelum bulan habis, saldo sudah tipis.</span>
+      </div>
+      <div class="mirror-item">
+        <span class="mirror-check">✓</span>
+        <span>Tahu kamu butuh penghasilan tambahan, tapi bingung harus mulai dari mana.</span>
+      </div>
+      <div class="mirror-item">
+        <span class="mirror-check">✓</span>
+        <span>Sudah cari-cari info side hustle — malah makin overwhelmed dan tidak jalan-jalan.</span>
+      </div>
+      <div class="mirror-item">
+        <span class="mirror-check">✓</span>
+        <span>Punya keahlian yang sudah diasah bertahun-tahun, tapi belum tahu cara memonetisasinya.</span>
+      </div>
+      <div class="mirror-item">
+        <span class="mirror-check">✓</span>
+        <span>Tidak mau resign — tapi diam-diam takut kalau suatu hari tiba-tiba di-PHK.</span>
+      </div>
+      <div class="mirror-item">
+        <span class="mirror-check">✓</span>
+        <span>Merasa waktu terus berjalan, tapi posisi finansialmu tidak bergerak ke mana-mana.</span>
+      </div>
+    </div>
+
+    <div class="mirror-close">
+      <p>Kalau kamu mengangguk membaca ini —</p>
+      <p class="mirror-close-strong">buku ini ditulis untuk kamu.</p>
+    </div>
   </div>
 </section>
 
