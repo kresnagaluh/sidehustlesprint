@@ -794,23 +794,23 @@ section {
 }
 
 .endorse-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
 .endorse-card {
-  background: var(--cream);
+  background: #F5EFE6;
   border-radius: 16px;
   padding: 28px 24px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(0,0,0,0.06);
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .endorse-card.featured {
-  background: linear-gradient(180deg, var(--ink), var(--ink-soft));
-  color: var(--cream);
-  border-color: var(--ink);
+  /* unified style — same as base card */
 }
 
 .endorse-quote {
@@ -818,6 +818,7 @@ section {
   font-size: 17px;
   line-height: 1.55;
   margin-bottom: 24px;
+  flex: 1;
   font-weight: 500;
   font-style: italic;
   color: var(--ink);
@@ -826,19 +827,39 @@ section {
 }
 
 .endorse-card.featured .endorse-quote {
-  color: var(--cream);
-  border-left-color: var(--gold);
+  color: var(--ink);
+  border-left-color: var(--brick);
 }
 
 .endorse-author {
   display: flex;
   align-items: center;
   gap: 14px;
+  margin-top: 20px;
+}
+
+.endorse-logo {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.endorse-logo img {
+  height: 48px;
+  width: auto;
+  display: block;
+  opacity: 0.7;
+  filter: grayscale(30%);
+}
+
+.endorse-logo--placeholder {
+  font-size: 22px;
+  color: var(--muted);
+  opacity: 0.4;
 }
 
 .endorse-avatar {
-  width: 52px;
-  height: 52px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--brick), var(--brick-deep));
   color: var(--cream);
@@ -851,6 +872,18 @@ section {
   flex-shrink: 0;
   border: 2px solid var(--paper);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.endorse-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.endorse-avatar--placeholder {
+  background: rgba(0,0,0,0.08);
+  color: var(--muted);
+  font-size: 20px;
 }
 
 .endorse-card.featured .endorse-avatar {
@@ -1772,12 +1805,7 @@ details summary::-webkit-details-marker {
   }
 
   .endorse-stack {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .endorse-card.featured {
-    grid-column: span 2;
   }
 
   .compare-grid {
