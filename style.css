@@ -12,7 +12,7 @@
   --line: rgba(26, 22, 19, 0.12);
 
   --display: 'Source Serif 4', Georgia, serif;
-  --body: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+  --body: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono: 'JetBrains Mono', monospace;
 }
 
@@ -219,7 +219,7 @@ section {
 
 .hero h1 .headline-sub {
   display: block;
-  font-size: 0.6em;
+  font-size: 0.52em;
   font-weight: 700;
   margin-top: 12px;
   line-height: 1.25;
@@ -457,11 +457,21 @@ section {
 
 .hero-trust {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
   font-size: 13px;
-  color: var(--muted);
-  flex-wrap: wrap;
+  color: rgba(245, 239, 230, 0.7);
+}
+
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-trust-item i {
+  color: #87c593;
+  font-size: 12px;
 }
 
 .hero-trust .stars {
