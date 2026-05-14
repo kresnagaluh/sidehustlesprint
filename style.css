@@ -846,6 +846,7 @@ section {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
+  align-items: stretch;
 }
 
 .endorse-card {
@@ -856,6 +857,7 @@ section {
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .endorse-card.featured {
