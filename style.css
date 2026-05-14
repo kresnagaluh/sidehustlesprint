@@ -719,6 +719,10 @@ section {
   letter-spacing: 0.08em;
 }
 
+.pillar-featured {
+  border: 2px solid var(--brick);
+}
+
 .inside {
   background: var(--cream);
   padding: 64px 0;
