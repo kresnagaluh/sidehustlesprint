@@ -1118,6 +1118,33 @@ section {
   opacity: 0.85;
 }
 
+.guide-cta {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.guide-cta p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.guide-cta-link {
+  font-weight: 600;
+  color: var(--brick);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.guide-cta-link:hover {
+  text-decoration: underline;
+}
+
 .plan {
   background: var(--paper);
   padding: 64px 0;
