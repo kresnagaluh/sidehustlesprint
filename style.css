@@ -1226,12 +1226,35 @@ section {
 }
 
 .compare-col.bad {
-  border-color: rgba(198, 61, 47, 0.25);
+  background: #F0EDE8;
+  border: 1px solid #C9C2B8;
 }
 
 .compare-col.good {
-  border: 2px solid var(--brick);
-  background: linear-gradient(180deg, var(--paper), var(--cream));
+  background: #FFFFFF;
+  border: 1px solid #C9C2B8;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.compare-col.good::after {
+  content: "✓";
+  position: absolute;
+  bottom: -10px;
+  right: 16px;
+  font-size: 120px;
+  color: #2D9E5F;
+  opacity: 0.06;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.compare-col.good > * {
+  position: relative;
+  z-index: 1;
 }
 
 .compare-col h3 {
@@ -1244,16 +1267,28 @@ section {
   line-height: 1.2;
 }
 
+.compare-col.bad h3 {
+  color: var(--ink);
+}
+
+.compare-col.good h3 {
+  color: var(--ink);
+}
+
 .compare-col.bad h3::before {
-  content: "✕  ";
+  content: "\f00d";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
   color: var(--brick);
-  font-weight: bold;
+  margin-right: 8px;
 }
 
 .compare-col.good h3::before {
-  content: "✓  ";
-  color: var(--brick);
-  font-weight: bold;
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #2D9E5F;
+  margin-right: 8px;
 }
 
 .compare-col ul {
@@ -1272,7 +1307,13 @@ section {
 }
 
 .compare-col.bad li {
-  color: var(--muted);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.compare-col.good li {
+  color: var(--ink);
+  font-weight: 500;
 }
 
 .pricing {
