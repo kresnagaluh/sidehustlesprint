@@ -149,8 +149,9 @@ section {
 .logo {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 26px;
   letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .logo span {
@@ -159,7 +160,7 @@ section {
 }
 
 .nav-cta {
-  background: var(--ink);
+  background: var(--brick);
   color: var(--cream);
   padding: 8px 16px;
   border-radius: 999px;
