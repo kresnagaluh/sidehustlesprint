@@ -1673,17 +1673,20 @@ section {
 .price-cta--ghost {
   background: transparent !important;
   color: rgba(245, 239, 230, 0.8) !important;
-  border: 1.5px solid rgba(245, 239, 230, 0.3) !important;
+  border: 1.5px solid #FAF6EE !important;
   box-shadow: none !important;
 }
 
 .pricing-note {
   text-align: center;
   margin-top: 28px;
-  font-size: 13px;
+  font-size: 16px;
   color: rgba(245, 239, 230, 0.55);
   line-height: 1.6;
   padding: 0 8px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pricing-note strong {
