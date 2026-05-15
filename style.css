@@ -1913,20 +1913,35 @@ details summary::-webkit-details-marker {
 }
 
 .footer-inner {
-  text-align: center;
   display: flex;
-  flex-direction: column;
-  gap: 14px;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer a:hover {
   color: var(--cream);
 }
 
-.footer-links {
+.footer-center {
+  text-align: center;
   display: flex;
-  gap: 20px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-brand {
+  font-size: 0.9rem;
+  color: rgba(245, 239, 230, 0.55);
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  color: rgba(245, 239, 230, 0.35);
+}
+
+.footer-tagline .fa-heart {
+  color: #E8453C;
+  margin: 0 2px;
 }
 
 .sticky-cta {
@@ -2217,10 +2232,7 @@ details summary::-webkit-details-marker {
   }
 
   .footer-inner {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
+    justify-content: center;
   }
 
   .sticky-cta {
@@ -2471,6 +2483,13 @@ details summary::-webkit-details-marker {
   flex-direction: column;
   justify-content: center;
   gap: 12px;
+}
+
+.popup-before {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0 0 0.5rem;
 }
 
 .popup-eyebrow {
