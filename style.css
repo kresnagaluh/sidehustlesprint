@@ -1734,6 +1734,8 @@ section {
   font-size: 30px;
   line-height: 1;
   font-style: italic;
+  color: #FFFFFF !important;
+  font-weight: 700;
 }
 
 .guarantee-seal span {
@@ -1775,7 +1777,7 @@ section {
   color: var(--muted);
   display: block;
   margin-top: 16px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
   font-weight: 500;
 }
