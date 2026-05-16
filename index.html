@@ -12,6 +12,24 @@
     gtag('config', 'G-5203TR184V');
   </script>
 
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '288295800781238');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=288295800781238&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Side Hustle Sprint: Blueprint 15 Hari Membangun Penghasilan Tambahan dari Produk Digital</title>
@@ -610,8 +628,7 @@
             </li>
           </ul>
 
-          <a href="https://madrasahdigital.myr.id/pl/side-hustle-sprint/" class="price-cta price-cta--ghost">Ambil Paket
-            Basic <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="https://madrasahdigital.myr.id/pl/side-hustle-sprint/" class="price-cta price-cta--ghost" onclick="fbq('track', 'InitiateCheckout', {content_name: 'Side Hustle Sprint - Basic', currency: 'IDR', value: 78000, num_items: 1})">Ambil Paket Basic <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <div class="price-card featured">
@@ -644,8 +661,7 @@
             </li>
           </ul>
 
-          <a href="https://madrasahdigital.myr.id/pl/side-hustle-sprint-pro/" class="price-cta price-cta--red">Ambil Pro
-            Bundle <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="https://madrasahdigital.myr.id/pl/side-hustle-sprint-pro/" class="price-cta price-cta--red" onclick="fbq('track', 'InitiateCheckout', {content_name: 'Side Hustle Sprint - Pro Bundle', currency: 'IDR', value: 123000, num_items: 1})">Ambil Pro Bundle <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -951,6 +967,15 @@
         if (e.key === 'Escape') closePopup();
       });
     })();
+  </script>
+
+  <script>
+    fbq('track', 'ViewContent', {
+      content_name: 'Side Hustle Sprint',
+      content_type: 'product',
+      currency: 'IDR',
+      value: 78000
+    });
   </script>
 
 </body>
