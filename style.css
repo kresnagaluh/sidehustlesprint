@@ -69,7 +69,7 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--brick);
-  font-weight: 500;
+  font-weight: 600;
   display: block;
 }
 
@@ -95,7 +95,7 @@ section {
   padding: 10px 16px;
   text-align: center;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.01em;
   line-height: 1.4;
 }
@@ -311,7 +311,7 @@ section {
   font-size: 10px;
   line-height: 1.5;
   opacity: 0.9;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .book-title {
@@ -326,7 +326,7 @@ section {
 .book-author {
   font-family: var(--body);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .badge-floating {
@@ -602,6 +602,10 @@ section {
   position: relative;
 }
 
+.stakes .eyebrow {
+  margin-bottom: 14px;
+}
+
 .stakes h2 {
   font-size: 30px;
   margin-bottom: 18px;
@@ -791,7 +795,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 4px;
 }
 
@@ -810,7 +814,7 @@ section {
   font-size: 10px;
   letter-spacing: 0.1em;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   margin-left: 4px;
   vertical-align: middle;
 }
@@ -1309,12 +1313,12 @@ section {
 
 .compare-col.bad li {
   color: var(--ink);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .compare-col.good li {
   color: var(--ink);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .bonus-section {
@@ -1744,7 +1748,7 @@ section {
   font-family: var(--mono);
   letter-spacing: 0.1em;
   margin-top: 2px;
-  font-weight: 500;
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -1780,7 +1784,7 @@ section {
   margin-top: 16px;
   font-size: 15px;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .faq {
@@ -2541,7 +2545,7 @@ details summary::-webkit-details-marker {
 .popup-perks li {
   font-size: 13px;
   color: var(--ink-soft);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .popup-cta {
