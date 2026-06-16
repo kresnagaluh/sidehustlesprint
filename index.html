@@ -121,9 +121,7 @@
           <span class="hero-tag">Buku Eksekusi · Tanpa Basa-basi</span>
           <h1 class="display">
             Gaji Selalu Habis Sebelum Akhir Bulan?
-            <span class="headline-sub">Blueprint <span class="accent">15 Hari</span> Bikin <span
-                class="underline">Penghasilan Tambahan</span> dari
-              Produk Digital.</span>
+            <span class="headline-sub">Blueprint <span class="accent">15 Hari</span> Bikin Penghasilan Tambahan dari Produk Digital.</span>
           </h1>
           <p class="hero-sub">
             Untuk kamu yang gajinya cuma numpang lewat. Tidak perlu resign. Tidak perlu modal besar. Cukup 2 jam sehari
@@ -566,7 +564,7 @@
       <div class="section-header">
         <span class="eyebrow">KHUSUS PRO BUNDLE</span>
         <h2 class="display">Jangan mulai dari nol.
-          <em class="italic-display">Sistemnya sudah disiapkan.</em>
+          <em class="italic-display">Blueprint-nya sudah disiapkan.</em>
         </h2>
         <p class="lead">Pro Bundle hadir dengan dua template siap
           pakai yang mengikuti setiap langkah di buku, hari per hari.
@@ -912,6 +910,23 @@
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const stickyCta = document.querySelector('.sticky-cta');
+    const heroSection = document.querySelector('.hero');
+
+    if (stickyCta && heroSection) {
+      const stickyCtaObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            stickyCta.classList.remove('is-visible');
+          } else {
+            stickyCta.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -80% 0px' });
+
+      stickyCtaObserver.observe(heroSection);
+    }
 
     const faqs = document.querySelectorAll('.faq-item');
     faqs.forEach((faq) => {
