@@ -13,7 +13,7 @@
 
   --display: 'Source Serif 4', Georgia, serif;
   --body: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --mono: 'JetBrains Mono', monospace;
+  --mono: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 * {
@@ -318,7 +318,7 @@ section {
   font-family: var(--body);
   font-size: 36px;
   line-height: 0.95;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
   text-transform: uppercase;
 }
