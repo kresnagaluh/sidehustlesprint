@@ -885,6 +885,11 @@
     <a href="#pricing">Ambil Bukunya, Harga Rp 78.000 <i class="fa-solid fa-arrow-right"></i></a>
   </div>
 
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/6285128000590" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat via WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -898,14 +903,17 @@
 
     const stickyCta = document.querySelector('.sticky-cta');
     const heroSection = document.querySelector('.hero');
+    const whatsappBtn = document.querySelector('.whatsapp-float');
 
     if (stickyCta && heroSection) {
       const stickyCtaObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             stickyCta.classList.remove('is-visible');
+            if (whatsappBtn) whatsappBtn.classList.remove('is-visible');
           } else {
             stickyCta.classList.add('is-visible');
+            if (whatsappBtn) whatsappBtn.classList.add('is-visible');
           }
         });
       }, { threshold: 0, rootMargin: '0px 0px -80% 0px' });
@@ -1022,10 +1030,6 @@
     });
   </script>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/6285128000590" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat via WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
 
 </body>
 

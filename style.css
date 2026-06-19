@@ -2634,5 +2634,15 @@ details summary::-webkit-details-marker {
   .whatsapp-float {
     bottom: 80px;
     right: 16px;
+    opacity: 0;
+    transform: scale(0.7);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease;
+  }
+
+  .whatsapp-float.is-visible {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
   }
 }
